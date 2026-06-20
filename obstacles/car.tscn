@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cp0tmce5y5h7v"]
+
+[ext_resource type="Script" uid="uid://fgldx04qyhmi" path="res://obstacles/car.gd" id="1_1kudh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hthv"]
+size = Vector2(200, 100)
+
+[node name="Car" type="CharacterBody2D" unique_id=1284217992]
+collision_layer = 2
+script = ExtResource("1_1kudh")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1815429931]
+custom_minimum_size = Vector2(200, 100)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0.17254902, 0.32156864, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1389702002]
+position = Vector2(100, 50)
+shape = SubResource("RectangleShape2D_1hthv")

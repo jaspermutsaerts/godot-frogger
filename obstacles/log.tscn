@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://csnotsffvg2fo"]
+
+[ext_resource type="Script" uid="uid://u3c2gj025sxk" path="res://obstacles/log.gd" id="1_y8dqc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kr0dq"]
+
+[node name="Log" type="StaticBody2D" unique_id=1497848398]
+script = ExtResource("1_y8dqc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=495524585]
+shape = SubResource("RectangleShape2D_kr0dq")

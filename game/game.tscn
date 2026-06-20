@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://dh5nnoo583xdg"]
+
+[ext_resource type="Script" uid="uid://rwp4757086s0" path="res://game/game.gd" id="1_l1rk1"]
+[ext_resource type="PackedScene" uid="uid://bqlk0tyb056qh" path="res://obstacles/car_spawner.tscn" id="3_h7iqs"]
+
+[node name="Game" type="Node2D" unique_id=2053881977]
+script = ExtResource("1_l1rk1")
+
+[node name="BackgroundLayer" type="Node2D" parent="." unique_id=732525483]
+
+[node name="EndZone" type="ColorRect" parent="BackgroundLayer" unique_id=680005645]
+custom_minimum_size = Vector2(1080, 120)
+offset_right = 1080.0
+offset_bottom = 120.0
+size_flags_horizontal = 0
+color = Color(0.09019608, 0.5882353, 0.12941177, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="ColorRect" parent="BackgroundLayer" unique_id=989291100]
+visible = false
+custom_minimum_size = Vector2(1080, 1920)
+offset_right = 1080.0
+offset_bottom = 1920.0
+size_flags_horizontal = 0
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="River" type="ColorRect" parent="BackgroundLayer" unique_id=98278345]
+custom_minimum_size = Vector2(1080, 540)
+offset_left = 1.0
+offset_top = 122.0
+offset_right = 1081.0
+offset_bottom = 662.0
+size_flags_horizontal = 0
+color = Color(0.06666667, 0.06666667, 0.72156864, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Bank" type="ColorRect" parent="BackgroundLayer" unique_id=116938369]
+custom_minimum_size = Vector2(1080, 120)
+offset_top = 664.0
+offset_right = 1080.0
+offset_bottom = 844.0
+size_flags_horizontal = 0
+color = Color(0.09019608, 0.28627452, 0.12941177, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Road" type="ColorRect" parent="BackgroundLayer" unique_id=1171985179]
+custom_minimum_size = Vector2(1080, 540)
+offset_top = 845.0
+offset_right = 1080.0
+offset_bottom = 1385.0
+size_flags_horizontal = 0
+color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Bank2" type="ColorRect" parent="BackgroundLayer" unique_id=1193311373]
+custom_minimum_size = Vector2(1080, 120)
+offset_top = 1386.0
+offset_right = 1080.0
+offset_bottom = 1566.0
+size_flags_horizontal = 0
+color = Color(0.09019608, 0.28627452, 0.12941177, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=110871503]
+
+[node name="Lane1" type="Node2D" parent="Obstacles" unique_id=800176563]
+position = Vector2(0, 1281)
+
+[node name="Lane3" type="Node2D" parent="Obstacles" unique_id=119825663]
+position = Vector2(0, 888)
+
+[node name="Lane2" type="Node2D" parent="Obstacles" unique_id=1900428667]
+position = Vector2(1082, 1105)
+
+[node name="Spawners" type="Node2D" parent="." unique_id=734945315]
+
+[node name="Lane1CarSpawner" parent="Spawners" unique_id=1578579531 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
+target_layer = NodePath("../../Obstacles/Lane1")
+
+[node name="Lane3CarSpawner" parent="Spawners" unique_id=29339782 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
+target_layer = NodePath("../../Obstacles/Lane3")
+
+[node name="Lane2CarSpawner" parent="Spawners" unique_id=623321480 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
+target_layer = NodePath("../../Obstacles/Lane2")
+direction = "left"
