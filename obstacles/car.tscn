@@ -6,7 +6,8 @@
 size = Vector2(200, 100)
 
 [node name="Car" type="CharacterBody2D" unique_id=1284217992]
-collision_layer = 2
+collision_layer = 3
+collision_mask = 2
 script = ExtResource("1_1kudh")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1815429931]

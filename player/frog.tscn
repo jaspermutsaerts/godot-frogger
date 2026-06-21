@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://dwuvcdfucjw46"]
 
 [ext_resource type="Texture2D" uid="uid://chxdg80ovn1dn" path="res://sprites/frog.png" id="1_e23au"]
+[ext_resource type="Script" uid="uid://cmqv32pg23q46" path="res://player/frog.gd" id="1_hkdbt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e23au"]
 size = Vector2(72, 88)
 
 [node name="Frog" type="CharacterBody2D" unique_id=2042843471]
-collision_mask = 2
+collision_mask = 14
+script = ExtResource("1_hkdbt")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1922598913]
 texture = ExtResource("1_e23au")
