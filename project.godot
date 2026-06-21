@@ -24,6 +24,7 @@ window/size/viewport_height=1920
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Obstacles"
+2d_physics/layer_3="Safe Obstacles"
 
 [physics]
 

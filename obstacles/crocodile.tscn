@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bawcgxpladay3"]
+
+[ext_resource type="Script" uid="uid://b8h2eo2cba0f0" path="res://obstacles/crocodile.gd" id="1_ac1uj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8dqc"]
+size = Vector2(160, 20)
+
+[node name="Crocodile" type="CharacterBody2D" unique_id=989330780]
+collision_layer = 2
+script = ExtResource("1_ac1uj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=486167144]
+custom_minimum_size = Vector2(200, 100)
+offset_right = 200.0
+offset_bottom = 100.0
+scale = Vector2(0.79999954, 0.19999814)
+size_flags_horizontal = 0
+color = Color(0.24854949, 0.32451826, 0.068718106, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694735985]
+position = Vector2(80, 10)
+shape = SubResource("RectangleShape2D_y8dqc")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=251296254]
+position = Vector2(80, -3.8146973e-06)
+rotation = -3.1415925
+scale = Vector2(8.338638, -1.0231608)
+rect = Rect2(-10, 0, 20, 20)
