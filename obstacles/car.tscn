@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hthv"]
 size = Vector2(144, 79)
 
-[node name="Car" type="CharacterBody2D" unique_id=1284217992]
+[node name="Car" type="Area2D" unique_id=1929466373]
 collision_layer = 3
 script = ExtResource("1_1kudh")
 
@@ -20,8 +20,10 @@ scale = Vector2(8.372932, 5.493167)
 rect = Rect2(-10, 0, 20, 20)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=611097264]
+z_index = 50
+z_as_relative = false
 texture = ExtResource("2_n5io3")
 region_enabled = true
-region_rect = Rect2(235.63239, 280.18008, 144.36761, 80.54831)
+region_rect = Rect2(364, 280.18008, 144, 80.54831)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

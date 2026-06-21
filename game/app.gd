@@ -16,5 +16,13 @@ func _on_new_game_button_pressed() -> void:
         current_game.queue_free()
 
     current_game = game_scene.instantiate()
+    current_game.connect("game_over", _on_game_over)
     add_child(current_game)
     main_menu.hide()
+
+
+func _on_game_over() -> void:
+    if current_game:
+        current_game.queue_free()
+
+    main_menu.show()

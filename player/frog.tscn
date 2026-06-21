@@ -1,18 +1,81 @@
 [gd_scene format=3 uid="uid://dwuvcdfucjw46"]
 
-[ext_resource type="Texture2D" uid="uid://chxdg80ovn1dn" path="res://sprites/frog.png" id="1_e23au"]
 [ext_resource type="Script" uid="uid://cmqv32pg23q46" path="res://player/frog.gd" id="1_hkdbt"]
+[ext_resource type="Texture2D" uid="uid://b0yva4te78he3" path="res://sprites/spritesheet.png" id="2_hkdbt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e23au"]
 size = Vector2(72, 88)
+
+[sub_resource type="Animation" id="Animation_hkdbt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_crt5v"]
+resource_name = "drawo"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3, 0.43333334, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 4, 5, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_6c6yd"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6c6yd"]
+_data = {
+&"RESET": SubResource("Animation_hkdbt"),
+&"drown": SubResource("Animation_crt5v"),
+&"splat": SubResource("Animation_6c6yd")
+}
 
 [node name="Frog" type="CharacterBody2D" unique_id=2042843471]
 collision_mask = 14
 script = ExtResource("1_hkdbt")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1922598913]
-texture = ExtResource("1_e23au")
+texture = ExtResource("2_hkdbt")
+hframes = 4
+vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=516359882]
 visible = false
 shape = SubResource("RectangleShape2D_e23au")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1841163997]
+scale = Vector2(3.6941864, 4.447623)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1383198811]
+libraries/ = SubResource("AnimationLibrary_6c6yd")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

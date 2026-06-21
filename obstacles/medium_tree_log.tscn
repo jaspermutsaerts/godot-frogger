@@ -6,9 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8dqc"]
 size = Vector2(232, 95)
 
-[node name="MediumTreeLog" type="CharacterBody2D" unique_id=2144881196]
+[node name="MediumTreeLog" type="Area2D" unique_id=1160141086]
 collision_layer = 4
 script = ExtResource("1_msc3q")
+is_platform = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694735985]
 position = Vector2(89, 0.5)
@@ -22,27 +23,27 @@ rect = Rect2(-10, 0, 20, 20)
 
 [node name="Sprites" type="Node2D" parent="." unique_id=1248710717]
 
-[node name="Start" type="Sprite2D" parent="Sprites" unique_id=60865118]
+[node name="Start" type="Sprite2D" parent="Sprites" unique_id=82614379]
 texture = ExtResource("2_euqf4")
 region_enabled = true
-region_rect = Rect2(129, 16, 55, 96)
+region_rect = Rect2(256, 16, 69, 96)
 
-[node name="Middle" type="Sprite2D" parent="Sprites" unique_id=1234797738]
-position = Vector2(66, 0)
+[node name="Middle" type="Sprite2D" parent="Sprites" unique_id=1921736655]
+position = Vector2(74, 0)
 texture = ExtResource("2_euqf4")
 region_enabled = true
-region_rect = Rect2(184, 16, 80, 96)
+region_rect = Rect2(308, 16, 80, 96)
 
-[node name="Middle2" type="Sprite2D" parent="Sprites" unique_id=1159149105]
-position = Vector2(146, 0)
+[node name="Middle2" type="Sprite2D" parent="Sprites" unique_id=2081473481]
+position = Vector2(130, 0)
 texture = ExtResource("2_euqf4")
 region_enabled = true
-region_rect = Rect2(184, 16, 80, 96)
+region_rect = Rect2(308, 16, 80, 96)
 
-[node name="End" type="Sprite2D" parent="Sprites" unique_id=2133930350]
-position = Vector2(196, 0)
+[node name="End" type="Sprite2D" parent="Sprites" unique_id=141210125]
+position = Vector2(188, 0)
 texture = ExtResource("2_euqf4")
 region_enabled = true
-region_rect = Rect2(364, 16, 20, 96)
+region_rect = Rect2(476, 16, 36, 96)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

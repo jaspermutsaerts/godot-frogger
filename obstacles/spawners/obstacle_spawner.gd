@@ -14,8 +14,9 @@ func _ready() -> void:
     if not target_layer:
         return
 
-    var timer = get_tree().create_timer(_get_next_delay())
-    timer.connect("timeout", spawn)
+    # var timer = get_tree().create_timer(_get_next_delay())
+    # timer.connect("timeout", spawn)
+    spawn.call_deferred()
 
 
 func spawn() -> void:

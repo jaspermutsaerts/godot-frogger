@@ -6,9 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hthv"]
 size = Vector2(186, 94)
 
-[node name="Truck" type="CharacterBody2D" unique_id=1284217992]
+[node name="Truck" type="Area2D" unique_id=247770341]
+z_index = 50
+z_as_relative = false
 collision_layer = 3
-collision_mask = 2
 script = ExtResource("1_x0pj3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1389702002]
@@ -22,9 +23,7 @@ rect = Rect2(-10, 0, 20, 20)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=611097264]
 texture = ExtResource("2_uuu3q")
-hframes = 2
-vframes = 3
-frame = 4
-region_rect = Rect2(235.63239, 280.18008, 144.36761, 80.54831)
+region_enabled = true
+region_rect = Rect2(132, 271, 188, 97)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

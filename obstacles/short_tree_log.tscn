@@ -6,9 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8dqc"]
 size = Vector2(151, 94)
 
-[node name="ShortTreeLog" type="CharacterBody2D" unique_id=2144881196]
+[node name="ShortTreeLog" type="Area2D" unique_id=1955805202]
 collision_layer = 4
 script = ExtResource("1_0s086")
+is_platform = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694735985]
 position = Vector2(48.5, 1)
@@ -22,21 +23,21 @@ rect = Rect2(-10, 0, 20, 20)
 
 [node name="Sprites" type="Node2D" parent="." unique_id=643930286]
 
-[node name="Start" type="Sprite2D" parent="Sprites" unique_id=1842444907]
+[node name="Start" type="Sprite2D" parent="Sprites" unique_id=1297318758]
 texture = ExtResource("2_mn5y8")
 region_enabled = true
-region_rect = Rect2(129, 16, 55, 96)
+region_rect = Rect2(256, 16, 69, 96)
 
-[node name="Middle" type="Sprite2D" parent="Sprites" unique_id=506718026]
-position = Vector2(66, 0)
+[node name="Middle" type="Sprite2D" parent="Sprites" unique_id=1656885279]
+position = Vector2(74, 0)
 texture = ExtResource("2_mn5y8")
 region_enabled = true
-region_rect = Rect2(184, 16, 80, 96)
+region_rect = Rect2(308, 16, 80, 96)
 
-[node name="End" type="Sprite2D" parent="Sprites" unique_id=182358705]
-position = Vector2(114, 0)
+[node name="End" type="Sprite2D" parent="Sprites" unique_id=1211451638]
+position = Vector2(108, 0)
 texture = ExtResource("2_mn5y8")
 region_enabled = true
-region_rect = Rect2(364, 16, 20, 96)
+region_rect = Rect2(476, 16, 36, 96)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

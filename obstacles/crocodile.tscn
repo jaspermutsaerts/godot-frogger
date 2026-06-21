@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8dqc"]
 size = Vector2(241, 92)
 
-[node name="Crocodile" type="CharacterBody2D" unique_id=989330780]
+[node name="Crocodile" type="Area2D" unique_id=1409399572]
 collision_layer = 2
 script = ExtResource("1_ac1uj")
 
@@ -20,9 +20,9 @@ rotation = -3.1415925
 scale = Vector2(12.352049, -4.867293)
 rect = Rect2(-10, 0, 20, 20)
 
-[node name="Spritesheet" type="Sprite2D" parent="." unique_id=1707147650]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1707147650]
 texture = ExtResource("2_5rpyy")
 region_enabled = true
-region_rect = Rect2(135, 144, 246, 97)
+region_rect = Rect2(264, 144, 243, 97)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]
