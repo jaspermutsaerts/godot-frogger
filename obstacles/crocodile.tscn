@@ -1,28 +1,28 @@
 [gd_scene format=3 uid="uid://bawcgxpladay3"]
 
 [ext_resource type="Script" uid="uid://b8h2eo2cba0f0" path="res://obstacles/crocodile.gd" id="1_ac1uj"]
+[ext_resource type="Texture2D" uid="uid://b0yva4te78he3" path="res://sprites/spritesheet.png" id="2_5rpyy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8dqc"]
-size = Vector2(160, 20)
+size = Vector2(241, 92)
 
 [node name="Crocodile" type="CharacterBody2D" unique_id=989330780]
 collision_layer = 2
 script = ExtResource("1_ac1uj")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=486167144]
-custom_minimum_size = Vector2(200, 100)
-offset_right = 200.0
-offset_bottom = 100.0
-scale = Vector2(0.79999954, 0.19999814)
-size_flags_horizontal = 0
-color = Color(0.24854949, 0.32451826, 0.068718106, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694735985]
-position = Vector2(80, 10)
+position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_y8dqc")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=251296254]
-position = Vector2(80, -3.8146973e-06)
+position = Vector2(-2.000002, -51.000004)
 rotation = -3.1415925
-scale = Vector2(8.338638, -1.0231608)
+scale = Vector2(12.352049, -4.867293)
 rect = Rect2(-10, 0, 20, 20)
+
+[node name="Spritesheet" type="Sprite2D" parent="." unique_id=1707147650]
+texture = ExtResource("2_5rpyy")
+region_enabled = true
+region_rect = Rect2(135, 144, 246, 97)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

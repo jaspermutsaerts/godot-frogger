@@ -9,6 +9,6 @@ var frog:Frog
 @onready var player_spawn_point:Node2D = %PlayerSpawnPoint
 
 func _ready() -> void:
-	frog = frog_scene.instantiate()
-	frog.global_position = player_spawn_point.global_position
-	game_layer.add_child(frog)
+    frog = frog_scene.instantiate()
+    frog.global_position = player_spawn_point.global_position
+    game_layer.add_child(frog)

@@ -1,5 +1,0 @@
-extends MovingObstacle
-class_name Car
-
-func get_speed() -> int:
-	return 100

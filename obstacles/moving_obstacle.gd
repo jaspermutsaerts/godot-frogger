@@ -2,10 +2,13 @@
 class_name MovingObstacle
 extends CharacterBody2D
 
-@abstract func get_speed() -> int
+var _speed:int = 0
+
+func set_speed(speed: int) -> void:
+	_speed = speed
 
 func _ready() -> void:
-	velocity = Vector2(get_speed(), 0).rotated(rotation)
+	velocity = Vector2(_speed, 0).rotated(rotation)
 
 func _process(_delta: float) -> void:
 	move_and_slide()

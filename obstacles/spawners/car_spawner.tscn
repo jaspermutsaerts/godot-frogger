@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://bqlk0tyb056qh"]
-
-[ext_resource type="Script" uid="uid://b575ebhln0id5" path="res://obstacles/spawners/car_spawner.gd" id="1_bj1tc"]
-
-[node name="CarSpawner" type="Node2D" unique_id=1578579531]
-script = ExtResource("1_bj1tc")

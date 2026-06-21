@@ -1,27 +1,30 @@
-[gd_scene format=3 uid="uid://cp0tmce5y5h7v"]
+[gd_scene format=3 uid="uid://bhedafbqlag3g"]
 
-[ext_resource type="Script" uid="uid://fgldx04qyhmi" path="res://obstacles/vehicle.gd" id="1_1kudh"]
-[ext_resource type="Texture2D" uid="uid://b0yva4te78he3" path="res://sprites/spritesheet.png" id="2_n5io3"]
+[ext_resource type="Script" uid="uid://fgldx04qyhmi" path="res://obstacles/vehicle.gd" id="1_x0pj3"]
+[ext_resource type="Texture2D" uid="uid://b0yva4te78he3" path="res://sprites/spritesheet.png" id="2_uuu3q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hthv"]
-size = Vector2(144, 79)
+size = Vector2(186, 94)
 
-[node name="Car" type="CharacterBody2D" unique_id=1284217992]
+[node name="Truck" type="CharacterBody2D" unique_id=1284217992]
 collision_layer = 3
-script = ExtResource("1_1kudh")
+collision_mask = 2
+script = ExtResource("1_x0pj3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1389702002]
-position = Vector2(1, -0.5)
+position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_1hthv")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=564134711]
 position = Vector2(8, -58)
-scale = Vector2(8.372932, 5.493167)
+scale = Vector2(10.692933, 5.493167)
 rect = Rect2(-10, 0, 20, 20)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=611097264]
-texture = ExtResource("2_n5io3")
-region_enabled = true
+texture = ExtResource("2_uuu3q")
+hframes = 2
+vframes = 3
+frame = 4
 region_rect = Rect2(235.63239, 280.18008, 144.36761, 80.54831)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

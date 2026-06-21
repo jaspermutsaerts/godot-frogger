@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://my8hakbj8ovb"]
+
+[ext_resource type="Script" uid="uid://u3c2gj025sxk" path="res://obstacles/tree_log.gd" id="1_msc3q"]
+[ext_resource type="Texture2D" uid="uid://b0yva4te78he3" path="res://sprites/spritesheet.png" id="2_euqf4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8dqc"]
+size = Vector2(232, 95)
+
+[node name="MediumTreeLog" type="CharacterBody2D" unique_id=2144881196]
+collision_layer = 4
+script = ExtResource("1_msc3q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694735985]
+position = Vector2(89, 0.5)
+shape = SubResource("RectangleShape2D_y8dqc")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=251296254]
+position = Vector2(91.00001, -48.000008)
+rotation = -3.1415925
+scale = Vector2(12.128804, -4.7414894)
+rect = Rect2(-10, 0, 20, 20)
+
+[node name="Sprites" type="Node2D" parent="." unique_id=1248710717]
+
+[node name="Start" type="Sprite2D" parent="Sprites" unique_id=60865118]
+texture = ExtResource("2_euqf4")
+region_enabled = true
+region_rect = Rect2(129, 16, 55, 96)
+
+[node name="Middle" type="Sprite2D" parent="Sprites" unique_id=1234797738]
+position = Vector2(66, 0)
+texture = ExtResource("2_euqf4")
+region_enabled = true
+region_rect = Rect2(184, 16, 80, 96)
+
+[node name="Middle2" type="Sprite2D" parent="Sprites" unique_id=1159149105]
+position = Vector2(146, 0)
+texture = ExtResource("2_euqf4")
+region_enabled = true
+region_rect = Rect2(184, 16, 80, 96)
+
+[node name="End" type="Sprite2D" parent="Sprites" unique_id=2133930350]
+position = Vector2(196, 0)
+texture = ExtResource("2_euqf4")
+region_enabled = true
+region_rect = Rect2(364, 16, 20, 96)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

@@ -1,2 +1,2 @@
 extends MovingObstacle
-class_name TreeLog
+class_name Vehicle
