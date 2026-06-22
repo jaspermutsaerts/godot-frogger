@@ -3,7 +3,7 @@ class_name Frog
 
 const MOVE_SPEED = 100
 
-signal died()
+signal died
 
 var is_on_platform:bool = false
 var platform:Node2D
@@ -35,7 +35,7 @@ func _process(_delta: float) -> void:
             print("die")
 
 func _on_screen_exited() -> void:
-    emit_signal("died", self)
+    emit_signal("died")
 
 
 func hit_platform(obstacle:MovingObstacle) -> void:
@@ -48,8 +48,7 @@ func hit_platform(obstacle:MovingObstacle) -> void:
 
 func hit_obstacle(_obstacle:MovingObstacle) -> void:
     animation_player.play("splat")
-    emit_signal("died", self)
-    print("splat")
+    emit_signal("died")
 
 
 
