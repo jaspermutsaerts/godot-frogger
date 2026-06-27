@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dn51wlbrsqvnk"]
+
+[ext_resource type="Script" uid="uid://bbvjdwusaqg7f" path="res://obstacles/spawners/frog_spawner.gd" id="1_vbeuk"]
+
+[node name="FrogSpawner" type="Node2D" unique_id=751331675]
+script = ExtResource("1_vbeuk")

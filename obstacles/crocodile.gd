@@ -1,2 +1,0 @@
-extends MovingObstacle
-class_name Crocodile

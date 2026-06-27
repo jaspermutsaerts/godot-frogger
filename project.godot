@@ -15,6 +15,10 @@ run/main_scene="uid://dowa58f6a04rt"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://sprites/icon.svg"
 
+[autoload]
+
+EventBus="*uid://bmvx3ooxbu45g"
+
 [display]
 
 window/size/viewport_width=1080
@@ -26,6 +30,7 @@ window/size/viewport_height=1920
 2d_physics/layer_2="Obstacles"
 2d_physics/layer_3="Safe Obstacles"
 2d_physics/layer_4="Endzone"
+2d_physics/layer_5="Water"
 
 [physics]
 

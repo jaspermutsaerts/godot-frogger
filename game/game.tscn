@@ -3,6 +3,15 @@
 [ext_resource type="Script" uid="uid://rwp4757086s0" path="res://game/game.gd" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://buihb2y6eqcis" path="res://obstacles/spawners/river_spawner.tscn" id="2_h7iqs"]
 [ext_resource type="PackedScene" uid="uid://bqlk0tyb056qh" path="res://obstacles/spawners/road_spawner.tscn" id="3_h7iqs"]
+[ext_resource type="PackedScene" uid="uid://my8hakbj8ovb" path="res://obstacles/medium_tree_log.tscn" id="3_l8g03"]
+[ext_resource type="PackedScene" uid="uid://dn51wlbrsqvnk" path="res://obstacles/spawners/frog_spawner.tscn" id="4_4fuuu"]
+[ext_resource type="PackedScene" uid="uid://cp0tmce5y5h7v" path="res://obstacles/car.tscn" id="4_dakft"]
+[ext_resource type="PackedScene" uid="uid://csnotsffvg2fo" path="res://obstacles/long_tree_log.tscn" id="4_j8tme"]
+[ext_resource type="PackedScene" uid="uid://cr8yu5tsxpef4" path="res://obstacles/short_tree_log.tscn" id="5_3vho3"]
+[ext_resource type="PackedScene" uid="uid://bhedafbqlag3g" path="res://obstacles/truck.tscn" id="5_u5opy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fuuu"]
+size = Vector2(1092.5, 501)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7iqs"]
 size = Vector2(1076, 122)
@@ -47,19 +56,19 @@ color = Color(0.09019608, 0.28627452, 0.12941177, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Road" type="ColorRect" parent="BackgroundLayer" unique_id=1171985179]
-custom_minimum_size = Vector2(1080, 540)
+custom_minimum_size = Vector2(1080, 500)
 offset_top = 847.0
 offset_right = 1080.0
-offset_bottom = 1387.0
+offset_bottom = 1347.0
 size_flags_horizontal = 0
 color = Color(0.13333334, 0.13333334, 0.13333334, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Bank2" type="ColorRect" parent="BackgroundLayer" unique_id=1193311373]
 custom_minimum_size = Vector2(1080, 120)
-offset_top = 1386.0
+offset_top = 1347.0
 offset_right = 1080.0
-offset_bottom = 1566.0
+offset_bottom = 1527.0
 scale = Vector2(0.99718153, 1.8628471)
 size_flags_horizontal = 0
 color = Color(0.09019608, 0.28627452, 0.12941177, 1)
@@ -71,72 +80,96 @@ metadata/_edit_use_anchors_ = true
 
 [node name="River" type="Node2D" parent="GameLayer/Obstacles" unique_id=2040771956]
 
+[node name="Area2D" type="Area2D" parent="GameLayer/Obstacles/River" unique_id=940034851]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameLayer/Obstacles/River/Area2D" unique_id=730212809]
+position = Vector2(539.75, 400.5)
+shape = SubResource("RectangleShape2D_4fuuu")
+
 [node name="Spawners" type="Node2D" parent="GameLayer/Obstacles/River" unique_id=1080086603]
 
-[node name="Lane1" parent="GameLayer/Obstacles/River/Spawners" unique_id=85263080 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
-position = Vector2(-250, 600)
+[node name="Lane5" parent="GameLayer/Obstacles/River/Spawners" unique_id=431378511 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
+position = Vector2(-250, 200)
+obstacle_scene = ExtResource("4_j8tme")
 target_layer = NodePath("../..")
-minimum_delay = 2
-maximum_delay = 3
+delay = 2.0
 
-[node name="Lane2" parent="GameLayer/Obstacles/River/Spawners" unique_id=1053611006 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
-position = Vector2(1119, 500)
+[node name="Lane4" parent="GameLayer/Obstacles/River/Spawners" unique_id=1477236076 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
+position = Vector2(1119, 300)
+obstacle_scene = ExtResource("4_j8tme")
 target_layer = NodePath("../..")
-minimum_delay = 2
-maximum_delay = 3
+delay = 2.0
 direction = "left"
 
 [node name="Lane3" parent="GameLayer/Obstacles/River/Spawners" unique_id=899928322 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
 position = Vector2(-250, 400)
+obstacle_scene = ExtResource("3_l8g03")
 target_layer = NodePath("../..")
-minimum_delay = 2
-maximum_delay = 3
+delay = 2.0
 
-[node name="Lane4" parent="GameLayer/Obstacles/River/Spawners" unique_id=1477236076 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
-position = Vector2(1119, 300)
+[node name="Lane2" parent="GameLayer/Obstacles/River/Spawners" unique_id=1053611006 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
+position = Vector2(1119, 500)
+obstacle_scene = ExtResource("5_3vho3")
 target_layer = NodePath("../..")
-minimum_delay = 2
-maximum_delay = 3
+delay = 2.0
 direction = "left"
 
-[node name="Lane5" parent="GameLayer/Obstacles/River/Spawners" unique_id=431378511 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
-position = Vector2(-250, 200)
+[node name="Lane1" parent="GameLayer/Obstacles/River/Spawners" unique_id=85263080 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
+position = Vector2(-250, 600)
+obstacle_scene = ExtResource("5_3vho3")
 target_layer = NodePath("../..")
-minimum_delay = 2
-maximum_delay = 3
+delay = 2.0
 
 [node name="Road" type="Node2D" parent="GameLayer/Obstacles" unique_id=1488620801]
 
 [node name="Spawners" type="Node2D" parent="GameLayer/Obstacles/Road" unique_id=553590107]
 
-[node name="Lane1" parent="GameLayer/Obstacles/Road/Spawners" unique_id=1162949342 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
+[node name="Lane5" parent="GameLayer/Obstacles/Road/Spawners" unique_id=2073737599 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
 z_index = -10
-position = Vector2(-90, 1300)
+position = Vector2(-90, 900)
+obstacle_scene = ExtResource("5_u5opy")
 target_layer = NodePath("../..")
+delay = 3.0
 
-[node name="Lane2" parent="GameLayer/Obstacles/Road/Spawners" unique_id=1372454188 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
-position = Vector2(1120, 1192)
+[node name="Lane4" parent="GameLayer/Obstacles/Road/Spawners" unique_id=1096128149 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
+position = Vector2(1120, 1000)
+obstacle_scene = ExtResource("4_dakft")
 target_layer = NodePath("../..")
+delay = 2.0
 direction = "left"
 
 [node name="Lane3" parent="GameLayer/Obstacles/Road/Spawners" unique_id=882697801 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
 z_index = -10
 position = Vector2(-90, 1100)
+obstacle_scene = ExtResource("5_u5opy")
 target_layer = NodePath("../..")
+delay = 3.0
+obstacle_speed = 150
 
-[node name="Lane4" parent="GameLayer/Obstacles/Road/Spawners" unique_id=1096128149 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
-position = Vector2(1120, 1000)
+[node name="Lane2" parent="GameLayer/Obstacles/Road/Spawners" unique_id=1372454188 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
+position = Vector2(1120, 1192)
+obstacle_scene = ExtResource("4_dakft")
 target_layer = NodePath("../..")
+delay = 3.0
+obstacle_speed = 150
 direction = "left"
 
-[node name="Lane5" parent="GameLayer/Obstacles/Road/Spawners" unique_id=2073737599 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
+[node name="Lane1" parent="GameLayer/Obstacles/Road/Spawners" unique_id=1162949342 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
 z_index = -10
-position = Vector2(-90, 900)
+position = Vector2(-90, 1300)
+obstacle_scene = ExtResource("4_dakft")
 target_layer = NodePath("../..")
+delay = 2.0
+obstacle_speed = 250
 
-[node name="PlayerSpawnPoint" type="Node2D" parent="GameLayer" unique_id=350565782]
+[node name="Player" type="Node2D" parent="GameLayer" unique_id=1671098382]
+
+[node name="FrogSpawner" parent="GameLayer/Player" unique_id=751331675 node_paths=PackedStringArray("river_zone", "target_layer") instance=ExtResource("4_4fuuu")]
 unique_name_in_owner = true
-position = Vector2(561, 1500)
+position = Vector2(562, 1599)
+river_zone = NodePath("../../Obstacles/River/Area2D")
+target_layer = NodePath("..")
 
 [node name="Endzone" type="Area2D" parent="GameLayer" unique_id=2110170448]
 collision_layer = 8
