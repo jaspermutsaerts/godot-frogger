@@ -1,12 +1,11 @@
-@abstract
 class_name ObstacleSpawner
 extends Node2D
 
 @export var obstacle_scene:PackedScene
-
 @export var target_layer:Node2D
 @export var delay:float = 5
 @export var obstacle_speed:int = 200
+@export var disable_rotation:bool = false
 @export_enum("left", "right") var direction:String = "right"
 
 func _ready() -> void:
@@ -18,9 +17,9 @@ func _ready() -> void:
 
 func spawn() -> void:
     var obstacle:MovingObstacle = obstacle_scene.instantiate()
-    obstacle.set_speed(obstacle_speed)
+    obstacle.set_speed(obstacle_speed if direction == "right" else -obstacle_speed)
 
-    if direction == "left":
+    if direction == "left" and not disable_rotation:
         obstacle.rotate(PI)
 
     target_layer.add_child(obstacle)

@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cr8yu5tsxpef4" path="res://obstacles/short_tree_log.tscn" id="5_3vho3"]
 [ext_resource type="PackedScene" uid="uid://bhedafbqlag3g" path="res://obstacles/truck.tscn" id="5_u5opy"]
 [ext_resource type="PackedScene" uid="uid://bkfuy7t8sylol" path="res://obstacles/large_turtle_group.tscn" id="6_j8tme"]
+[ext_resource type="PackedScene" uid="uid://bcku5typ8u7qk" path="res://gui/life_container.tscn" id="12_qf6n1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fuuu"]
 size = Vector2(1092.5, 501)
@@ -96,6 +97,7 @@ position = Vector2(-250, 200)
 obstacle_scene = ExtResource("4_j8tme")
 target_layer = NodePath("../..")
 delay = 2.0
+disable_rotation = true
 
 [node name="Lane4" parent="GameLayer/Obstacles/River/Spawners" unique_id=1477236076 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
 position = Vector2(1119, 300)
@@ -109,19 +111,21 @@ position = Vector2(-250, 400)
 obstacle_scene = ExtResource("3_l8g03")
 target_layer = NodePath("../..")
 delay = 2.0
+disable_rotation = true
 
 [node name="Lane2" parent="GameLayer/Obstacles/River/Spawners" unique_id=1053611006 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
 position = Vector2(1119, 500)
 obstacle_scene = ExtResource("5_3vho3")
 target_layer = NodePath("../..")
 delay = 2.0
+disable_rotation = true
 direction = "left"
 
 [node name="Lane1" parent="GameLayer/Obstacles/River/Spawners" unique_id=85263080 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
 position = Vector2(-250, 600)
 obstacle_scene = ExtResource("6_j8tme")
 target_layer = NodePath("../..")
-delay = 2.0
+delay = 2.5
 
 [node name="Road" type="Node2D" parent="GameLayer/Obstacles" unique_id=1488620801]
 
@@ -179,3 +183,19 @@ collision_layer = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameLayer/Endzone" unique_id=577923314]
 position = Vector2(542, 62)
 shape = SubResource("RectangleShape2D_h7iqs")
+
+[node name="Control" type="Control" parent="." unique_id=727136435]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LifeContainer" parent="Control" unique_id=650281970 instance=ExtResource("12_qf6n1")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+offset_left = 104.0
+offset_top = 1754.0
+offset_right = 164.0
+offset_bottom = 1854.0
+grow_vertical = 0

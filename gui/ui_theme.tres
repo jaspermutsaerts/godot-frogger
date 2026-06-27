@@ -2,3 +2,5 @@
 
 [resource]
 Button/font_sizes/font_size = 48
+RichTextLabel/font_sizes/normal_font_size = 65
+RichTextLabel/styles/normal = null

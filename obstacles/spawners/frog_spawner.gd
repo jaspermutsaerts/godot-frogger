@@ -6,7 +6,6 @@ var frog_scene:PackedScene = preload("res://player/frog.tscn")
 @export var river_zone:Area2D
 @export var target_layer:Node2D
 
-
 func spawn() -> void:
     var frog:Frog = frog_scene.instantiate()
     target_layer.add_child(frog)

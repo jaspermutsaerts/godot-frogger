@@ -9,19 +9,21 @@ var lives:int = 5
 
 func _ready() -> void:
     EventBus.connect("frog_died", _on_frog_died)
+    EventBus.emit_signal("game_started", lives)
 
     await get_tree().create_timer(3).timeout
+
+    print("started")
     frog_spawner.spawn()
 
 
 func _on_frog_died(frog: Frog) -> void:
     lives -= 1
-    print("on frog died")
+    EventBus.emit_signal("life_lost", lives)
 
 
     await get_tree().create_timer(2).timeout
-    if is_instance_valid(frog):
-        frog.queue_free()
+    frog.queue_free()
 
     if lives == 0:
         EventBus.emit_signal("game_over")

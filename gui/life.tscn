@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b6nidprb6ap47"]
+
+[ext_resource type="Texture2D" uid="uid://b0yva4te78he3" path="res://sprites/spritesheet.png" id="1_rl0pm"]
+
+[node name="Heart" type="Control" unique_id=2016442826]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1700911181]
+texture = ExtResource("1_rl0pm")
+hframes = 8
+vframes = 6
+frame = 17

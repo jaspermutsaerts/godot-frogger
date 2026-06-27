@@ -9,6 +9,7 @@ var platform:Node2D
 var platform_offset:float = 0
 
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
+@onready var collision_shape:CollisionShape2D = %CollisionShape2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -56,9 +57,13 @@ func hit_platform(obstacle:MovingObstacle) -> void:
 
 func hit_obstacle(obstacle:MovingObstacle) -> void:
     _die("splat")
+    collision_shape.set_disabled(true)
 
 
 func _die(animation: String) -> void:
+    if not is_alive:
+        return
+
     is_alive = false
     animation_player.play(animation)
     EventBus.emit_signal("frog_died", self)

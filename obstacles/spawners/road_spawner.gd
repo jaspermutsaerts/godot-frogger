@@ -1,2 +1,0 @@
-extends ObstacleSpawner
-class_name RoadSpawner

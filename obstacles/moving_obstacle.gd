@@ -15,7 +15,7 @@ func _ready() -> void:
     body_entered.connect(_on_body_entered)
     body_exited.connect(_on_body_exited)
 
-    _velocity = Vector2(_speed, 0).rotated(rotation)
+    _velocity = Vector2(_speed, 0)
 
 func _process(delta: float) -> void:
     position += _velocity * delta

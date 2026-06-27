@@ -69,6 +69,7 @@ hframes = 4
 vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=516359882]
+unique_name_in_owner = true
 visible = false
 shape = SubResource("RectangleShape2D_e23au")
 
