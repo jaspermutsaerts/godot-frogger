@@ -9,6 +9,7 @@ size = Vector2(234.5, 98)
 [node name="MediumTurtleGroup" type="Area2D" unique_id=555302188]
 collision_layer = 4
 script = ExtResource("1_0g6h4")
+is_platform = true
 
 [node name="Turtle" parent="." unique_id=651656908 instance=ExtResource("2_sg26e")]
 

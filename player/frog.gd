@@ -57,7 +57,7 @@ func hit_platform(obstacle:MovingObstacle) -> void:
 
 func hit_obstacle(obstacle:MovingObstacle) -> void:
     _die("splat")
-    collision_shape.set_disabled(true)
+    collision_shape.set_disabled.call_deferred(true)
 
 
 func _die(animation: String) -> void:
