@@ -7,7 +7,7 @@ signal died
 
 var is_on_platform:bool = false
 var platform:Node2D
-var platform_offset:int = 0
+var platform_offset:float = 0
 
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
 
@@ -18,6 +18,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+    var horizontal_move:int = 0;
     if Input.is_action_just_pressed("ui_up"):
         position.y -= MOVE_SPEED
         rotation = 0
@@ -25,14 +26,20 @@ func _process(_delta: float) -> void:
 
     elif Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
         var direction = Input.get_axis("ui_left", "ui_right")
-        position.x += MOVE_SPEED * direction
+        horizontal_move = MOVE_SPEED * direction        
         rotation = PI  *.5 * direction
+
 
     if is_on_platform:
         if is_instance_valid(platform):
+            # move with platform
+            platform_offset += horizontal_move
             global_position.x = platform_offset + platform.global_position.x
         else:
             print("die")
+    else:
+        position.x += horizontal_move
+
 
 func _on_screen_exited() -> void:
     emit_signal("died")
@@ -46,14 +53,18 @@ func hit_platform(obstacle:MovingObstacle) -> void:
     platform = obstacle
     platform_offset = global_position.x - obstacle.global_position.x
 
-func hit_obstacle(_obstacle:MovingObstacle) -> void:
-    animation_player.play("splat")
+func hit_obstacle(obstacle:MovingObstacle) -> void:
+    if obstacle is Crocodile:
+        animation_player.play("drown")
+    else:
+        animation_player.play("splat")
     emit_signal("died")
 
 
 
 
 func left_platform(obstacle:MovingObstacle) -> void:
+    print("Left platform")
     if not is_on_platform or not obstacle == platform:
         return
 

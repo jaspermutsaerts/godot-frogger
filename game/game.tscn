@@ -13,7 +13,7 @@ script = ExtResource("1_l1rk1")
 [node name="BackgroundLayer" type="Node2D" parent="." unique_id=732525483]
 
 [node name="EndZone" type="ColorRect" parent="BackgroundLayer" unique_id=680005645]
-custom_minimum_size = Vector2(1080, 120)
+custom_minimum_size = Vector2(1080, 150)
 offset_right = 1080.0
 offset_bottom = 120.0
 size_flags_horizontal = 0
@@ -29,29 +29,28 @@ size_flags_horizontal = 0
 color = Color(0.2, 0.2, 0.2, 1)
 
 [node name="River" type="ColorRect" parent="BackgroundLayer" unique_id=98278345]
-custom_minimum_size = Vector2(1080, 540)
-offset_left = 1.0
-offset_top = 122.0
-offset_right = 1081.0
-offset_bottom = 662.0
+custom_minimum_size = Vector2(1080, 500)
+offset_top = 150.0
+offset_right = 1080.0
+offset_bottom = 650.0
 size_flags_horizontal = 0
 color = Color(0.06666667, 0.06666667, 0.72156864, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Bank" type="ColorRect" parent="BackgroundLayer" unique_id=116938369]
 custom_minimum_size = Vector2(1080, 120)
-offset_top = 664.0
+offset_top = 650.0
 offset_right = 1080.0
-offset_bottom = 844.0
+offset_bottom = 850.0
 size_flags_horizontal = 0
 color = Color(0.09019608, 0.28627452, 0.12941177, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Road" type="ColorRect" parent="BackgroundLayer" unique_id=1171985179]
 custom_minimum_size = Vector2(1080, 540)
-offset_top = 845.0
+offset_top = 847.0
 offset_right = 1080.0
-offset_bottom = 1385.0
+offset_bottom = 1387.0
 size_flags_horizontal = 0
 color = Color(0.13333334, 0.13333334, 0.13333334, 1)
 metadata/_edit_use_anchors_ = true
@@ -61,6 +60,7 @@ custom_minimum_size = Vector2(1080, 120)
 offset_top = 1386.0
 offset_right = 1080.0
 offset_bottom = 1566.0
+scale = Vector2(0.99718153, 1.8628471)
 size_flags_horizontal = 0
 color = Color(0.09019608, 0.28627452, 0.12941177, 1)
 metadata/_edit_use_anchors_ = true
@@ -74,33 +74,33 @@ metadata/_edit_use_anchors_ = true
 [node name="Spawners" type="Node2D" parent="GameLayer/Obstacles/River" unique_id=1080086603]
 
 [node name="Lane1" parent="GameLayer/Obstacles/River/Spawners" unique_id=85263080 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
-position = Vector2(-250, 592)
+position = Vector2(-250, 600)
 target_layer = NodePath("../..")
 minimum_delay = 2
 maximum_delay = 3
 
 [node name="Lane2" parent="GameLayer/Obstacles/River/Spawners" unique_id=1053611006 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
-position = Vector2(1119, 467)
+position = Vector2(1119, 500)
 target_layer = NodePath("../..")
 minimum_delay = 2
 maximum_delay = 3
 direction = "left"
 
 [node name="Lane3" parent="GameLayer/Obstacles/River/Spawners" unique_id=899928322 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
-position = Vector2(-250, 367)
+position = Vector2(-250, 400)
 target_layer = NodePath("../..")
 minimum_delay = 2
 maximum_delay = 3
 
 [node name="Lane4" parent="GameLayer/Obstacles/River/Spawners" unique_id=1477236076 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
-position = Vector2(1119, 267)
+position = Vector2(1119, 300)
 target_layer = NodePath("../..")
 minimum_delay = 2
 maximum_delay = 3
 direction = "left"
 
 [node name="Lane5" parent="GameLayer/Obstacles/River/Spawners" unique_id=431378511 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
-position = Vector2(-250, 172)
+position = Vector2(-250, 200)
 target_layer = NodePath("../..")
 minimum_delay = 2
 maximum_delay = 3
@@ -111,7 +111,7 @@ maximum_delay = 3
 
 [node name="Lane1" parent="GameLayer/Obstacles/Road/Spawners" unique_id=1162949342 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
 z_index = -10
-position = Vector2(-90, 1317)
+position = Vector2(-90, 1300)
 target_layer = NodePath("../..")
 
 [node name="Lane2" parent="GameLayer/Obstacles/Road/Spawners" unique_id=1372454188 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
@@ -121,22 +121,22 @@ direction = "left"
 
 [node name="Lane3" parent="GameLayer/Obstacles/Road/Spawners" unique_id=882697801 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
 z_index = -10
-position = Vector2(-90, 1092)
+position = Vector2(-90, 1100)
 target_layer = NodePath("../..")
 
 [node name="Lane4" parent="GameLayer/Obstacles/Road/Spawners" unique_id=1096128149 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
-position = Vector2(1120, 992)
+position = Vector2(1120, 1000)
 target_layer = NodePath("../..")
 direction = "left"
 
 [node name="Lane5" parent="GameLayer/Obstacles/Road/Spawners" unique_id=2073737599 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
 z_index = -10
-position = Vector2(-90, 897)
+position = Vector2(-90, 900)
 target_layer = NodePath("../..")
 
 [node name="PlayerSpawnPoint" type="Node2D" parent="GameLayer" unique_id=350565782]
 unique_name_in_owner = true
-position = Vector2(561, 1490)
+position = Vector2(561, 1500)
 
 [node name="Endzone" type="Area2D" parent="GameLayer" unique_id=2110170448]
 collision_layer = 8
