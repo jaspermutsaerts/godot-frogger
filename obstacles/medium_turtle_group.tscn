@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://uf257tmnt4nn"]
+
+[ext_resource type="Script" uid="uid://dmq5pvxs2i8e7" path="res://obstacles/turtle_group.gd" id="1_0g6h4"]
+[ext_resource type="PackedScene" uid="uid://thqbusxdme31" path="res://obstacles/turtle.tscn" id="2_sg26e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hb07m"]
+size = Vector2(234.5, 98)
+
+[node name="MediumTurtleGroup" type="Area2D" unique_id=555302188]
+collision_layer = 4
+script = ExtResource("1_0g6h4")
+
+[node name="Turtle" parent="." unique_id=651656908 instance=ExtResource("2_sg26e")]
+
+[node name="Turtle2" parent="." unique_id=756992164 instance=ExtResource("2_sg26e")]
+position = Vector2(120, 0)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=768553325]
+position = Vector2(57.999996, 0)
+scale = Vector2(12.24, 4.959999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1878910852]
+position = Vector2(59.75, 0)
+shape = SubResource("RectangleShape2D_hb07m")

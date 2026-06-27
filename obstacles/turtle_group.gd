@@ -1,0 +1,2 @@
+extends MovingObstacle
+class_name TurtleGroup

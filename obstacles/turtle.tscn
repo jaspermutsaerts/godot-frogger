@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://thqbusxdme31"]
+
+[ext_resource type="Texture2D" uid="uid://b0yva4te78he3" path="res://sprites/spritesheet.png" id="2_u2wnp"]
+
+[sub_resource type="Animation" id="Animation_u2wnp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_vdbtt"]
+resource_name = "swim"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u2wnp"]
+_data = {
+&"RESET": SubResource("Animation_u2wnp"),
+&"swim": SubResource("Animation_vdbtt")
+}
+
+[node name="Turtle" type="Node2D" unique_id=1406149491]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=430311964]
+texture = ExtResource("2_u2wnp")
+hframes = 4
+vframes = 3
+frame = 6
+region_rect = Rect2(256, 16, 69, 96)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1626529110]
+libraries/ = SubResource("AnimationLibrary_u2wnp")
+autoplay = &"swim"
