@@ -79,6 +79,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="GameLayer" type="Node2D" parent="." unique_id=889281651]
 
+[node name="DeathLayer" type="Node2D" parent="GameLayer" unique_id=1832232377]
+
 [node name="Obstacles" type="Node2D" parent="GameLayer" unique_id=110871503]
 
 [node name="River" type="Node2D" parent="GameLayer/Obstacles" unique_id=2040771956]
@@ -123,7 +125,6 @@ direction = "left"
 
 [node name="Lane1" parent="GameLayer/Obstacles/River/Spawners" unique_id=85263080 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
 position = Vector2(-250, 600)
-is_enabled = false
 obstacle_scene = ExtResource("6_j8tme")
 target_layer = NodePath("../..")
 delay = 2.5
@@ -172,11 +173,12 @@ obstacle_speed = 250
 
 [node name="Player" type="Node2D" parent="GameLayer" unique_id=1671098382]
 
-[node name="FrogSpawner" parent="GameLayer/Player" unique_id=751331675 node_paths=PackedStringArray("river_zone", "target_layer") instance=ExtResource("4_4fuuu")]
+[node name="FrogSpawner" parent="GameLayer/Player" unique_id=751331675 node_paths=PackedStringArray("river_zone", "target_layer", "death_layer") instance=ExtResource("4_4fuuu")]
 unique_name_in_owner = true
 position = Vector2(562, 700)
 river_zone = NodePath("../../Obstacles/River/Area2D")
 target_layer = NodePath("..")
+death_layer = NodePath("../../DeathLayer")
 
 [node name="Endzone" type="Area2D" parent="GameLayer" unique_id=2110170448]
 collision_layer = 8

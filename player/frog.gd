@@ -15,6 +15,7 @@ var die_animations:Dictionary =  {
 
 var is_on_platform:bool = false
 var is_on_water:bool = false
+var _death_layer:Node2D # Layer serves to change z-index more visually on death
 
 var is_alive:bool = true
 var platform:Node2D
@@ -28,9 +29,11 @@ var platform_offset:float = 0
 func _ready() -> void:
     velocity = Vector2(0, 0)
 
-func setup(river_zone:Area2D) -> void:
+func setup(river_zone:Area2D, death_layer:Node2D) -> void:
    river_zone.connect("body_entered", _on_enter_river)
    river_zone.connect("body_exited", _on_exit_river)
+
+   _death_layer = death_layer
 
 
 
@@ -80,7 +83,6 @@ func entered_platform(obstacle:MovingObstacle) -> void:
 
 func hit_obstacle(obstacle:MovingObstacle) -> void:
     _die(DieMethod.RunOver)
-    collision_shape.set_disabled.call_deferred(true)
 
 func _on_enter_river(body:Node2D) -> void:
     if body != self:
@@ -100,6 +102,9 @@ func _die(method: DieMethod) -> void:
         return
 
     is_alive = false
+    collision_shape.set_disabled.call_deferred(true)
+    reparent(_death_layer)    
+    
 
     rotation = 0 if method == DieMethod.Drown else rotation
     animation_player.play(die_animations[method])
