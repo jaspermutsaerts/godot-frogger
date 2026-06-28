@@ -3,7 +3,15 @@ extends Node
 signal game_started(current_lives:int)
 signal game_over
 signal frog_moved
-signal frog_died(frog:Frog, method:Frog.DieMethod)
+signal frog_drown_started(frog:Frog)
+signal frog_drown_finished(frog:Frog)
+signal frog_ran_over(frog:Frog)
+signal frog_died(frog:Frog) # triggered when any death signal triggered
 signal life_lost(current_lives:int)
-signal frog_entered_river
-signal frog_exited_river
+
+func _ready() -> void:
+    EventBus.connect("frog_drown_finished", _on_frog_death_signal)
+    EventBus.connect("frog_ran_over", _on_frog_death_signal)
+
+func _on_frog_death_signal(frog: Frog) -> void:
+    EventBus.emit_signal("frog_died", frog)

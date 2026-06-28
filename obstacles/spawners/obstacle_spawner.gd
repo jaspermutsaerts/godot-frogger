@@ -1,6 +1,7 @@
 class_name ObstacleSpawner
 extends Node2D
 
+@export var is_enabled:bool = true
 @export var obstacle_scene:PackedScene
 @export var target_layer:Node2D
 @export var delay:float = 5
@@ -9,7 +10,7 @@ extends Node2D
 @export_enum("left", "right") var direction:String = "right"
 
 func _ready() -> void:
-    if not target_layer:
+    if not target_layer or not is_enabled:
         return
 
     spawn.call_deferred()

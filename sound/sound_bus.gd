@@ -1,13 +1,13 @@
 extends Node
 
 enum Sound {
-    Drown,
-    Hit,
-    Goal,
-    Move,
-    Win,
-    GameStart,
-    GameOver,
+   Drown,
+   Hit,
+   Goal,
+   Move,
+   Win,
+   GameStart,
+   GameOver,
 }
 
 
@@ -24,7 +24,8 @@ enum Sound {
 
 func _ready() -> void:
    EventBus.connect("frog_moved", _on_frog_moved)
-   EventBus.connect("frog_died", _on_frog_died)
+   EventBus.connect("frog_drown_started", _on_frog_drown_started)
+   EventBus.connect("frog_ran_over", _on_frog_ran_over)
    EventBus.connect("game_over", _on_game_over)
    EventBus.connect("game_started", _on_game_started)
 
@@ -32,9 +33,11 @@ func _ready() -> void:
 func _on_frog_moved() -> void:
    _play_sound(Sound.Move)
 
-func _on_frog_died(_frog:Frog, method:Frog.DieMethod) -> void:
-   var sound:Sound = Sound.Drown if method == Frog.DieMethod.Drown else Sound.Hit
-   _play_sound(sound)
+func _on_frog_drown_started(_frog:Frog) -> void:
+   _play_sound(Sound.Drown)
+   
+func _on_frog_ran_over(_frog:Frog) -> void:
+   _play_sound(Sound.Hit)   
 
 func _on_game_started(_lives:int) -> void:
    _play_sound(Sound.GameStart)

@@ -24,6 +24,6 @@ rect = Rect2(-10, 0, 20, 20)
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=611097264]
 texture = ExtResource("2_uuu3q")
 region_enabled = true
-region_rect = Rect2(132, 271, 188, 97)
+region_rect = Rect2(132, 400, 188, 96)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

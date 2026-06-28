@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
     position += _velocity * delta
 
 func _on_screen_exited() -> void:
-    # print("deleted offscreen")
     queue_free()
 
 func _on_body_entered(body:Node2D) -> void:
@@ -31,7 +30,7 @@ func _on_body_entered(body:Node2D) -> void:
     var frog:Frog = body
 
     if is_platform:
-        frog.hit_platform(self)
+        frog.entered_platform(self)
     else:
         frog.hit_obstacle(self)
 
@@ -41,5 +40,5 @@ func _on_body_exited(body:Node2D) -> void:
 
      var frog:Frog = body
 
-     if is_platform:
-          frog.left_platform(self)
+     if frog.platform == self:
+        frog.left_platform(self)

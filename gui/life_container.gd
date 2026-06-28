@@ -7,13 +7,11 @@ var life_scene:PackedScene = preload("res://gui/life.tscn")
 
 
 func _ready() -> void:
-    print("yes")
     EventBus.connect("game_started", _on_game_started)
     EventBus.connect("life_lost", _on_life_lost)
 
 
 func _on_game_started(lives:int) -> void:
-    print("yes2")
     for _i in lives:
         var life:Control = life_scene.instantiate()
         container.add_child(life)

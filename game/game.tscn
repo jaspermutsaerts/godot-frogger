@@ -123,6 +123,7 @@ direction = "left"
 
 [node name="Lane1" parent="GameLayer/Obstacles/River/Spawners" unique_id=85263080 node_paths=PackedStringArray("target_layer") instance=ExtResource("2_h7iqs")]
 position = Vector2(-250, 600)
+is_enabled = false
 obstacle_scene = ExtResource("6_j8tme")
 target_layer = NodePath("../..")
 delay = 2.5
@@ -173,7 +174,7 @@ obstacle_speed = 250
 
 [node name="FrogSpawner" parent="GameLayer/Player" unique_id=751331675 node_paths=PackedStringArray("river_zone", "target_layer") instance=ExtResource("4_4fuuu")]
 unique_name_in_owner = true
-position = Vector2(562, 1599)
+position = Vector2(562, 700)
 river_zone = NodePath("../../Obstacles/River/Area2D")
 target_layer = NodePath("..")
 

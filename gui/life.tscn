@@ -9,5 +9,5 @@ anchors_preset = 0
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1700911181]
 texture = ExtResource("1_rl0pm")
 hframes = 8
-vframes = 6
-frame = 17
+vframes = 8
+frame = 49

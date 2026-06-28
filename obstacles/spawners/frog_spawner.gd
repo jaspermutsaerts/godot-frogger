@@ -8,6 +8,7 @@ var frog_scene:PackedScene = preload("res://player/frog.tscn")
 
 func spawn() -> void:
     var frog:Frog = frog_scene.instantiate()
+    frog.setup(river_zone)
     target_layer.add_child(frog)
-
     frog.global_position = global_position
+
