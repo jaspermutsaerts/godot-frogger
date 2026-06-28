@@ -13,12 +13,11 @@ var die_animations:Dictionary =  {
     DieMethod.Drown: "drown",
 }
 
-var is_on_platform:bool = false
 var is_on_water:bool = false
 var _death_layer:Node2D # Layer serves to change z-index more visually on death
 
 var is_alive:bool = true
-var platform:Node2D
+var on_platforms:Array[Node2D] = []
 var platform_offset:float = 0
 
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
@@ -35,16 +34,18 @@ func setup(river_zone:Area2D, death_layer:Node2D) -> void:
 
    _death_layer = death_layer
 
+func is_on_platform() -> bool:
+    return not on_platforms.is_empty()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+    velocity = Vector2(0, 0)
+
     var horizontal_move:float = 0
     if is_alive:
         if Input.is_action_just_pressed("ui_up"):
             position.y -= MOVE_SPEED
             rotation = 0
-            is_on_platform = false
             EventBus.emit_signal("frog_moved")
 
         elif Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
@@ -55,17 +56,16 @@ func _process(_delta: float) -> void:
 
 
 
-    if is_on_platform:
-        if is_instance_valid(platform):
-            # move with platform
-            platform_offset += horizontal_move
-            global_position.x = platform_offset + platform.global_position.x
+    if is_on_platform():
+        var platform:MovingObstacle = on_platforms[-1]
+        velocity = platform._velocity
+        move_and_slide()
 
-    elif horizontal_move:
+    if horizontal_move:
         position.x += horizontal_move
 
     # we fell in the water
-    if is_alive and is_on_water and not is_on_platform:
+    if is_alive and is_on_water and not is_on_platform():
         _die(DieMethod.Drown)
 
 # only way to get dragged off screen is on a water platform
@@ -73,13 +73,13 @@ func _on_screen_exited() -> void:
     _die(DieMethod.Drown)
 
 
-func entered_platform(obstacle:MovingObstacle) -> void:
-    if platform == obstacle:
-        return
+func entered_platform(platform:MovingObstacle) -> void:
+    if platform not in on_platforms:
+        on_platforms.append(platform)
 
-    is_on_platform = true
-    platform = obstacle
-    platform_offset = global_position.x - obstacle.global_position.x
+func left_platform(platform:MovingObstacle) -> void:
+    on_platforms.erase(platform)
+
 
 func hit_obstacle(obstacle:MovingObstacle) -> void:
     _die(DieMethod.RunOver)
@@ -109,15 +109,6 @@ func _die(method: DieMethod) -> void:
     rotation = 0 if method == DieMethod.Drown else rotation
     animation_player.play(die_animations[method])
     
-
-
-func left_platform(obstacle:MovingObstacle) -> void:
-    if not is_on_platform or not obstacle == platform:
-        return
-
-    is_on_platform = false
-    platform = null
-    platform_offset = 0
    
 func _drown_animation_started() -> void:
     EventBus.emit_signal("frog_drown_started", self)
