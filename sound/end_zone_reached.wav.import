@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cna68wpfkdg6u"
-path="res://.godot/imported/goal.wav-14ce8f7cc501797c26db339082bee2f9.sample"
+path="res://.godot/imported/end_zone_reached.wav-a502f01ddd6ff663ee4f606703132c22.sample"
 
 [deps]
 
-source_file="res://sound/goal.wav"
-dest_files=["res://.godot/imported/goal.wav-14ce8f7cc501797c26db339082bee2f9.sample"]
+source_file="res://sound/end_zone_reached.wav"
+dest_files=["res://.godot/imported/end_zone_reached.wav-a502f01ddd6ff663ee4f606703132c22.sample"]
 
 [params]
 

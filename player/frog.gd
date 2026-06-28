@@ -28,11 +28,12 @@ var platform_offset:float = 0
 func _ready() -> void:
     velocity = Vector2(0, 0)
 
-func setup(river_zone:Area2D, death_layer:Node2D) -> void:
-   river_zone.connect("body_entered", _on_enter_river)
-   river_zone.connect("body_exited", _on_exit_river)
+func setup(river_zone:Area2D, end_zone:Area2D, death_layer:Node2D) -> void:
+    river_zone.connect("body_entered", _on_enter_river)
+    river_zone.connect("body_exited", _on_exit_river)
 
-   _death_layer = death_layer
+    end_zone.connect("body_entered", _on_enter_end_zone)
+    _death_layer = death_layer
 
 func is_on_platform() -> bool:
     return not on_platforms.is_empty()
@@ -80,8 +81,6 @@ func is_x_on_screen(global_x:float) -> bool:
 func clamp_x_to_screen(global_x:float, offset:int = 0) -> float:
     var screen_width:float = get_viewport().size.x
     return clamp(global_x, offset, screen_width - offset)
-
-
     
 
 func entered_platform(platform:MovingObstacle) -> void:
@@ -107,25 +106,38 @@ func _on_exit_river(body:Node2D) -> void:
 
     is_on_water = false
 
+func _on_enter_end_zone(body: Node) -> void:
+    if body != self:
+        return
+
+    _disable_interaction()
+    EventBus.emit_signal("end_zone_reached", self)
+
 
 func _die(method: DieMethod) -> void:
     if not is_alive:
         return
 
-    is_alive = false
-    collision_shape.set_disabled.call_deferred(true)
-    reparent(_death_layer)    
+    _disable_interaction()
+    reparent.call_deferred(_death_layer)    
     
 
     rotation = 0 if method == DieMethod.Drown else rotation
     animation_player.play(die_animations[method])
     
    
+func _disable_interaction() -> void:
+    is_alive = false
+    collision_shape.set_disabled.call_deferred(true)
+
 func _drown_animation_started() -> void:
     EventBus.emit_signal("frog_drown_started", self)
 
 func _drown_animation_finished() -> void:
     EventBus.emit_signal("frog_drown_finished", self)
     
+func _ran_over_animation_started() -> void:
+    EventBus.emit_signal("frog_ran_over_started", self)
+    
 func _ran_over_animation_finished() -> void:
-    EventBus.emit_signal("frog_ran_over", self)
+    EventBus.emit_signal("frog_ran_over_finished", self)

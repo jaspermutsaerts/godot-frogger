@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dpuu41a1tny2h" path="res://sound/sound_bus.gd" id="1_5annm"]
 [ext_resource type="AudioStream" uid="uid://disks0ctdg7ef" path="res://sound/drown.wav" id="2_81tc1"]
-[ext_resource type="AudioStream" uid="uid://cna68wpfkdg6u" path="res://sound/goal.wav" id="3_01oog"]
+[ext_resource type="AudioStream" uid="uid://cna68wpfkdg6u" path="res://sound/end_zone_reached.wav" id="3_01oog"]
 [ext_resource type="AudioStream" uid="uid://cf1rnkocwdd7a" path="res://sound/hit.wav" id="4_fff83"]
-[ext_resource type="AudioStream" uid="uid://o8oo8hghdc3e" path="res://sound/move.wav" id="5_trwlb"]
+[ext_resource type="AudioStream" uid="uid://o8oo8hghdc3e" path="res://sound/level_completed.wav" id="5_trwlb"]
 [ext_resource type="AudioStream" uid="uid://ijgdshkupwe8" path="res://sound/win.wav" id="6_6xjvq"]
 [ext_resource type="AudioStream" uid="uid://cc1ck4i2x77fa" path="res://sound/game_over.wav" id="7_81tc1"]
 [ext_resource type="AudioStream" uid="uid://x70lu63towq6" path="res://sound/game_start.wav" id="8_01oog"]
@@ -16,7 +16,7 @@ script = ExtResource("1_5annm")
 position = Vector2(1218, 1593)
 stream = ExtResource("2_81tc1")
 
-[node name="Goal" type="AudioStreamPlayer2D" parent="." unique_id=1817260434]
+[node name="EndZoneReached" type="AudioStreamPlayer2D" parent="." unique_id=1817260434]
 position = Vector2(1218, 1593)
 stream = ExtResource("3_01oog")
 
@@ -28,7 +28,7 @@ stream = ExtResource("4_fff83")
 position = Vector2(1218, 1593)
 stream = ExtResource("5_trwlb")
 
-[node name="Win" type="AudioStreamPlayer2D" parent="." unique_id=2020222864]
+[node name="LevelCompleted" type="AudioStreamPlayer2D" parent="." unique_id=2020222864]
 position = Vector2(1218, 1593)
 stream = ExtResource("6_6xjvq")
 
