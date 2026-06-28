@@ -52,7 +52,6 @@ func _process(_delta: float) -> void:
             var direction = Input.get_axis("ui_left", "ui_right")
             horizontal_move = MOVE_SPEED * direction
             rotation = PI * .5 * direction
-            EventBus.emit_signal("frog_moved")
 
 
 
@@ -68,13 +67,12 @@ func _process(_delta: float) -> void:
     if is_alive and is_on_water and not is_on_platform():
         _die(DieMethod.Drown)
 
-# only way to get dragged off screen is on a platform on the water, so we drown
 func _on_screen_exited() -> void:
     var offset:int = 50
     var width:int = get_viewport().size.x
-    print(width)
     global_position.x = clamp(global_position.x, 50, width - offset)    
-    _die(DieMethod.Drown)
+    if is_on_water:
+        _die(DieMethod.Drown)
 
 
 func entered_platform(platform:MovingObstacle) -> void:
