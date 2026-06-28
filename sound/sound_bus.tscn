@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bulrm3mgpm8iw"]
+
+[ext_resource type="Script" uid="uid://dpuu41a1tny2h" path="res://sound/sound_bus.gd" id="1_5annm"]
+[ext_resource type="AudioStream" uid="uid://disks0ctdg7ef" path="res://sound/drown.wav" id="2_81tc1"]
+[ext_resource type="AudioStream" uid="uid://cna68wpfkdg6u" path="res://sound/goal.wav" id="3_01oog"]
+[ext_resource type="AudioStream" uid="uid://cf1rnkocwdd7a" path="res://sound/hit.wav" id="4_fff83"]
+[ext_resource type="AudioStream" uid="uid://o8oo8hghdc3e" path="res://sound/move.wav" id="5_trwlb"]
+[ext_resource type="AudioStream" uid="uid://ijgdshkupwe8" path="res://sound/win.wav" id="6_6xjvq"]
+[ext_resource type="AudioStream" uid="uid://cc1ck4i2x77fa" path="res://sound/game_over.wav" id="7_81tc1"]
+[ext_resource type="AudioStream" uid="uid://x70lu63towq6" path="res://sound/game_start.wav" id="8_01oog"]
+
+[node name="SoundBus" type="Node" unique_id=1320596476]
+script = ExtResource("1_5annm")
+
+[node name="Drown" type="AudioStreamPlayer2D" parent="." unique_id=1114727482]
+position = Vector2(1218, 1593)
+stream = ExtResource("2_81tc1")
+
+[node name="Goal" type="AudioStreamPlayer2D" parent="." unique_id=1817260434]
+position = Vector2(1218, 1593)
+stream = ExtResource("3_01oog")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="." unique_id=1621472436]
+position = Vector2(1218, 1593)
+stream = ExtResource("4_fff83")
+
+[node name="Move" type="AudioStreamPlayer2D" parent="." unique_id=1147033144]
+position = Vector2(1218, 1593)
+stream = ExtResource("5_trwlb")
+
+[node name="Win" type="AudioStreamPlayer2D" parent="." unique_id=2020222864]
+position = Vector2(1218, 1593)
+stream = ExtResource("6_6xjvq")
+
+[node name="GameOver" type="AudioStreamPlayer2D" parent="." unique_id=1351516029]
+position = Vector2(1190, 1949)
+stream = ExtResource("7_81tc1")
+
+[node name="GameStart" type="AudioStreamPlayer2D" parent="." unique_id=21093418]
+position = Vector2(1074, 1765)
+stream = ExtResource("8_01oog")
+pitch_scale = 1.67
