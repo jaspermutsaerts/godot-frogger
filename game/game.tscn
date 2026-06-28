@@ -127,7 +127,7 @@ direction = "left"
 position = Vector2(-250, 600)
 obstacle_scene = ExtResource("6_j8tme")
 target_layer = NodePath("../..")
-delay = 2.5
+delay = 2.75
 
 [node name="Road" type="Node2D" parent="GameLayer/Obstacles" unique_id=1488620801]
 

@@ -53,27 +53,36 @@ func _process(_delta: float) -> void:
             horizontal_move = MOVE_SPEED * direction
             rotation = PI * .5 * direction
 
-
-
     if is_on_platform():
         var platform:MovingObstacle = on_platforms[-1]
         velocity = platform._velocity
         move_and_slide()
 
     if horizontal_move:
-        position.x += horizontal_move
+        if is_x_on_screen(global_position.x + horizontal_move):
+            position.x += horizontal_move
+            EventBus.emit_signal("frog_moved")
+
 
     # we fell in the water
     if is_alive and is_on_water and not is_on_platform():
         _die(DieMethod.Drown)
 
 func _on_screen_exited() -> void:
-    var offset:int = 50
-    var width:int = get_viewport().size.x
-    global_position.x = clamp(global_position.x, 50, width - offset)    
+    global_position.x = clamp_x_to_screen(global_position.x, 50)
     if is_on_water:
         _die(DieMethod.Drown)
 
+func is_x_on_screen(global_x:float) -> bool:
+    return global_x == clamp_x_to_screen(global_x)
+    
+    
+func clamp_x_to_screen(global_x:float, offset:int = 0) -> float:
+    var screen_width:float = get_viewport().size.x
+    return clamp(global_x, offset, screen_width - offset)
+
+
+    
 
 func entered_platform(platform:MovingObstacle) -> void:
     if platform not in on_platforms:
