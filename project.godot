@@ -22,7 +22,7 @@ SoundBus="*uid://bulrm3mgpm8iw"
 
 [display]
 
-window/size/viewport_width=1080
+window/size/viewport_width=1024
 window/size/viewport_height=1920
 
 [layer_names]
