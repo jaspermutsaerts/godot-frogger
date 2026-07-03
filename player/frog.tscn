@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://cmqv32pg23q46" path="res://player/frog.gd" id="1_hkdbt"]
 [ext_resource type="Texture2D" uid="uid://b0yva4te78he3" path="res://sprites/spritesheet.png" id="2_hkdbt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e23au"]
-size = Vector2(72, 88)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hkdbt"]
+radius = 23.0
+height = 72.0
 
 [sub_resource type="Animation" id="Animation_hkdbt"]
 length = 0.001
@@ -104,9 +105,11 @@ vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=516359882]
 unique_name_in_owner = true
-shape = SubResource("RectangleShape2D_e23au")
+position = Vector2(-1, -9)
+shape = SubResource("CapsuleShape2D_hkdbt")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1841163997]
+visible = false
 scale = Vector2(3.6941864, 4.447623)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1383198811]

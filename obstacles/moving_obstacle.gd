@@ -4,7 +4,6 @@ extends Area2D
 
 var _speed:int = 0
 var _velocity:Vector2
-var _is_platform:bool = false
 
 @export var is_platform:bool = false
 

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Frog
 
-const MOVE_SPEED = 128
+const MOVE_SPEED = 100
 
 enum DieMethod {
     RunOver,
