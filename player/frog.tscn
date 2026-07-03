@@ -125,7 +125,6 @@ position = Vector2(1, -10)
 shape = SubResource("CapsuleShape2D_hkdbt")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1841163997]
-visible = false
 scale = Vector2(3.6941864, 4.447623)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1383198811]
