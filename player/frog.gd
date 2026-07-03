@@ -28,11 +28,13 @@ var platform_offset:float = 0
 func _ready() -> void:
     velocity = Vector2(0, 0)
 
-func setup(river_zone:Area2D, end_zone:Area2D, death_layer:Node2D) -> void:
+func setup(river_zone:Area2D, end_zone_layer:Node2D, death_layer:Node2D) -> void:
     river_zone.connect("body_entered", _on_enter_river)
     river_zone.connect("body_exited", _on_exit_river)
 
-    end_zone.connect("body_entered", _on_enter_end_zone)
+    for end_zone:Area2D in end_zone_layer.get_children():
+        end_zone.connect("body_entered", func(body: Node): _on_end_zone_reached(end_zone))
+
     _death_layer = death_layer
 
 func is_on_platform() -> bool:
@@ -47,12 +49,14 @@ func _process(_delta: float) -> void:
         if Input.is_action_just_pressed("ui_up"):
             position.y -= MOVE_SPEED
             rotation = 0
+            animation_player.play("move")
             EventBus.emit_signal("frog_moved")
 
         elif Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
             var direction = Input.get_axis("ui_left", "ui_right")
             horizontal_move = MOVE_SPEED * direction
             rotation = PI * .5 * direction
+            animation_player.play("move")
 
     if is_on_platform():
         var platform:MovingObstacle = on_platforms[-1]
@@ -76,12 +80,12 @@ func _on_screen_exited() -> void:
 
 func is_x_on_screen(global_x:float) -> bool:
     return global_x == clamp_x_to_screen(global_x)
-    
-    
+
+
 func clamp_x_to_screen(global_x:float, offset:int = 0) -> float:
     var screen_width:float = get_viewport().size.x
     return clamp(global_x, offset, screen_width - offset)
-    
+
 
 func entered_platform(platform:MovingObstacle) -> void:
     if platform not in on_platforms:
@@ -99,18 +103,18 @@ func _on_enter_river(body:Node2D) -> void:
         return
 
     is_on_water = true
-    
+
 func _on_exit_river(body:Node2D) -> void:
     if body != self:
         return
 
     is_on_water = false
 
-func _on_enter_end_zone(body: Node) -> void:
-    if body != self:
-        return
+func _on_end_zone_reached(end_zone: Node) -> void:
 
     _disable_interaction()
+    position.x = round(position.x / 32) * 32
+
     EventBus.emit_signal("end_zone_reached", self)
 
 
@@ -119,13 +123,13 @@ func _die(method: DieMethod) -> void:
         return
 
     _disable_interaction()
-    reparent.call_deferred(_death_layer)    
-    
+    reparent.call_deferred(_death_layer)
+
 
     rotation = 0 if method == DieMethod.Drown else rotation
     animation_player.play(die_animations[method])
-    
-   
+
+
 func _disable_interaction() -> void:
     is_alive = false
     collision_shape.set_disabled.call_deferred(true)
@@ -135,9 +139,9 @@ func _drown_animation_started() -> void:
 
 func _drown_animation_finished() -> void:
     EventBus.emit_signal("frog_drown_finished", self)
-    
+
 func _ran_over_animation_started() -> void:
     EventBus.emit_signal("frog_ran_over_started", self)
-    
+
 func _ran_over_animation_finished() -> void:
     EventBus.emit_signal("frog_ran_over_finished", self)

@@ -77,7 +77,7 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_b686c")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fuuu"]
-size = Vector2(1092.5, 501)
+size = Vector2(1092.5, 480)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vsp63"]
 radius = 51.0
@@ -166,8 +166,7 @@ metadata/_edit_use_anchors_ = true
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameLayer/Obstacles/River/Water" unique_id=730212809]
-visible = false
-position = Vector2(539.75, 400.5)
+position = Vector2(539, 400)
 shape = SubResource("RectangleShape2D_4fuuu")
 
 [node name="Spawners" type="Node2D" parent="GameLayer/Obstacles/River" unique_id=1080086603]
@@ -256,35 +255,53 @@ obstacle_speed = 250
 
 [node name="Player" type="Node2D" parent="GameLayer" unique_id=1671098382]
 
-[node name="FrogSpawner" parent="GameLayer/Player" unique_id=751331675 node_paths=PackedStringArray("river_zone", "end_zone", "target_layer", "death_layer") instance=ExtResource("4_4fuuu")]
+[node name="FrogSpawner" parent="GameLayer/Player" unique_id=751331675 node_paths=PackedStringArray("river_zone", "end_zone_layer", "target_layer", "death_layer") instance=ExtResource("4_4fuuu")]
 unique_name_in_owner = true
-position = Vector2(557, 1599)
+position = Vector2(512, 1599)
 river_zone = NodePath("../../Obstacles/River/Water")
-end_zone = NodePath("../../Endzone")
+end_zone_layer = NodePath("../../EndZoneLayer")
 target_layer = NodePath("..")
 death_layer = NodePath("../../DeathLayer")
 
-[node name="Endzone" type="Area2D" parent="GameLayer" unique_id=2110170448]
+[node name="EndZoneLayer" type="Node2D" parent="GameLayer" unique_id=13007377]
+
+[node name="Endzone" type="Area2D" parent="GameLayer/EndZoneLayer" unique_id=2110170448]
 collision_layer = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameLayer/Endzone" unique_id=577923314]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameLayer/EndZoneLayer/Endzone" unique_id=577923314]
 position = Vector2(128, 97)
 shape = SubResource("CircleShape2D_vsp63")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="GameLayer/Endzone" unique_id=273271172]
-position = Vector2(320, 97)
+[node name="Endzone2" type="Area2D" parent="GameLayer/EndZoneLayer" unique_id=268578544]
+position = Vector2(191, 0)
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameLayer/EndZoneLayer/Endzone2" unique_id=1312693552]
+position = Vector2(128, 97)
 shape = SubResource("CircleShape2D_vsp63")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="GameLayer/Endzone" unique_id=572804478]
-position = Vector2(512, 97)
+[node name="Endzone3" type="Area2D" parent="GameLayer/EndZoneLayer" unique_id=85787443]
+position = Vector2(381, 0)
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameLayer/EndZoneLayer/Endzone3" unique_id=134880018]
+position = Vector2(131, 97)
 shape = SubResource("CircleShape2D_vsp63")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="GameLayer/Endzone" unique_id=1938333062]
-position = Vector2(704, 97)
+[node name="Endzone4" type="Area2D" parent="GameLayer/EndZoneLayer" unique_id=400781409]
+position = Vector2(576, 0)
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameLayer/EndZoneLayer/Endzone4" unique_id=381000688]
+position = Vector2(128, 97)
 shape = SubResource("CircleShape2D_vsp63")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="GameLayer/Endzone" unique_id=592461696]
-position = Vector2(896, 97)
+[node name="Endzone5" type="Area2D" parent="GameLayer/EndZoneLayer" unique_id=1372158386]
+position = Vector2(768, 0)
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameLayer/EndZoneLayer/Endzone5" unique_id=925152322]
+position = Vector2(128, 97)
 shape = SubResource("CircleShape2D_vsp63")
 
 [node name="EndzoneWall" type="Area2D" parent="GameLayer" unique_id=644709779]

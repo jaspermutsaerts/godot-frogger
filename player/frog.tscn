@@ -87,11 +87,27 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_2f4el"]
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [17, 18, 16]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6c6yd"]
 _data = {
 &"RESET": SubResource("Animation_hkdbt"),
 &"drown": SubResource("Animation_crt5v"),
-&"splat": SubResource("Animation_6c6yd")
+&"splat": SubResource("Animation_6c6yd"),
+&"walk": SubResource("Animation_2f4el")
 }
 
 [node name="Frog" type="CharacterBody2D" unique_id=2042843471]
@@ -101,11 +117,11 @@ script = ExtResource("1_hkdbt")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1922598913]
 texture = ExtResource("2_hkdbt")
 hframes = 4
-vframes = 4
+vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=516359882]
 unique_name_in_owner = true
-position = Vector2(-1, -9)
+position = Vector2(1, -12)
 shape = SubResource("CapsuleShape2D_hkdbt")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1841163997]

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b0yva4te78he3" path="res://sprites/spritesheet.png" id="2_uuu3q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hthv"]
-size = Vector2(186, 94)
+size = Vector2(178, 80)
 
 [node name="Truck" type="Area2D" unique_id=247770341]
 z_index = 50
@@ -13,10 +13,11 @@ collision_layer = 3
 script = ExtResource("1_x0pj3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1389702002]
-position = Vector2(-2, 0)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_1hthv")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=564134711]
+visible = false
 position = Vector2(8, -58)
 scale = Vector2(10.692933, 5.493167)
 rect = Rect2(-10, 0, 20, 20)

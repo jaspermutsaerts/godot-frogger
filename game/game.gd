@@ -5,7 +5,8 @@ var frog_scene:PackedScene = preload("res://player/frog.tscn")
 var frog_face_scene:PackedScene = preload("res://gui/life.tscn")
 
 var lives:int = 5
-var end_zones:int = 5
+const end_zones:int = 5
+var finished_frogs:Array[Frog] = []
 
 @onready var frog_spawner:Node2D = %FrogSpawner
 
@@ -20,10 +21,15 @@ func _ready() -> void:
 
 
 func _on_end_zone_reached(frog: Frog) -> void:
-    end_zones -= 1
+    if frog in finished_frogs:
+        return
+
+    finished_frogs.append(frog)
+    
 
     await get_tree().create_timer(1).timeout    
-    if end_zones == 0:
+    print(end_zones, finished_frogs.size())
+    if end_zones == finished_frogs.size():
         EventBus.emit_signal("level_completed")
         return
 

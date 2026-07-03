@@ -4,14 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://b0yva4te78he3" path="res://sprites/spritesheet.png" id="2_n5io3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hthv"]
-size = Vector2(144, 79)
+size = Vector2(132, 63)
 
 [node name="Car" type="Area2D" unique_id=1929466373]
 collision_layer = 3
 script = ExtResource("1_1kudh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1389702002]
-position = Vector2(1, -0.5)
+position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_1hthv")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=564134711]

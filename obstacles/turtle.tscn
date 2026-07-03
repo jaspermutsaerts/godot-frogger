@@ -44,7 +44,7 @@ _data = {
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=430311964]
 texture = ExtResource("2_u2wnp")
 hframes = 4
-vframes = 4
+vframes = 5
 frame = 10
 region_rect = Rect2(256, 16, 69, 96)
 

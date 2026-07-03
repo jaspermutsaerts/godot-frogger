@@ -10,12 +10,12 @@ script = ExtResource("1_2ag8j")
 
 [node name="MainMenu" type="VBoxContainer" parent="." unique_id=941689985]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1080, 100)
+custom_minimum_size = Vector2(1024, 100)
 layout_mode = 1
-offset_top = 250.0
 offset_right = 1080.0
-offset_bottom = 550.0
+offset_bottom = 263.0
 theme = ExtResource("2_3hv5s")
+alignment = 1
 
 [node name="GameOverLabel" type="RichTextLabel" parent="MainMenu" unique_id=683182755]
 unique_name_in_owner = true
