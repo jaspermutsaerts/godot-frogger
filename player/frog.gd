@@ -56,7 +56,6 @@ func _process(_delta: float) -> void:
             var direction = Input.get_axis("ui_left", "ui_right")
             horizontal_move = MOVE_SPEED * direction
             rotation = PI * .5 * direction
-            animation_player.play("move")
 
     if is_on_platform():
         var platform:MovingObstacle = on_platforms[-1]
