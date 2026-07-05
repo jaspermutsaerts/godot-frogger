@@ -39,10 +39,15 @@ func _on_frog_died(frog: Frog) -> void:
     lives -= 1
     EventBus.emit_signal("life_lost", lives)
 
-    await get_tree().create_timer(1).timeout    
+    await get_tree().create_timer(1).timeout 
 
     if lives == 0:
         EventBus.emit_signal("game_over")
         return
 
     frog_spawner.spawn()
+
+    await get_tree().create_timer(1).timeout 
+    if is_instance_valid(frog):
+        var tween:Tween = create_tween()
+        tween.tween_property(frog, "modulate:a", 0, .25)
