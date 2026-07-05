@@ -12,31 +12,26 @@
 [node name="SoundBus" type="Node" unique_id=1320596476]
 script = ExtResource("1_5annm")
 
-[node name="Drown" type="AudioStreamPlayer2D" parent="." unique_id=1114727482]
-position = Vector2(1218, 1593)
+[node name="Drown" type="AudioStreamPlayer" parent="." unique_id=1135785198]
 stream = ExtResource("2_81tc1")
 
-[node name="EndZoneReached" type="AudioStreamPlayer2D" parent="." unique_id=1817260434]
-position = Vector2(1218, 1593)
+[node name="EndZoneReached" type="AudioStreamPlayer" parent="." unique_id=618549019]
 stream = ExtResource("3_01oog")
+volume_db = -3.0
 
-[node name="Hit" type="AudioStreamPlayer2D" parent="." unique_id=1621472436]
-position = Vector2(1218, 1593)
+[node name="Hit" type="AudioStreamPlayer" parent="." unique_id=768805506]
 stream = ExtResource("4_fff83")
 
-[node name="Move" type="AudioStreamPlayer2D" parent="." unique_id=1147033144]
-position = Vector2(1218, 1593)
-stream = ExtResource("5_trwlb")
-
-[node name="LevelCompleted" type="AudioStreamPlayer2D" parent="." unique_id=2020222864]
-position = Vector2(1218, 1593)
+[node name="LevelCompleted" type="AudioStreamPlayer" parent="." unique_id=2110471675]
 stream = ExtResource("6_6xjvq")
 
-[node name="GameOver" type="AudioStreamPlayer2D" parent="." unique_id=1351516029]
-position = Vector2(1190, 1949)
+[node name="GameOver" type="AudioStreamPlayer" parent="." unique_id=860050257]
 stream = ExtResource("7_81tc1")
 
-[node name="GameStart" type="AudioStreamPlayer2D" parent="." unique_id=21093418]
-position = Vector2(1074, 1765)
+[node name="GameStart" type="AudioStreamPlayer" parent="." unique_id=46745190]
 stream = ExtResource("8_01oog")
 pitch_scale = 1.67
+
+[node name="Move" type="AudioStreamPlayer" parent="." unique_id=1978514598]
+stream = ExtResource("5_trwlb")
+volume_db = -4.0

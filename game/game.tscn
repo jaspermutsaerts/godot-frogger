@@ -216,13 +216,13 @@ delay = 2.75
 
 [node name="Lane5" parent="GameLayer/Obstacles/Road/Spawners" unique_id=2073737599 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
 z_index = -10
-position = Vector2(-90, 900)
+position = Vector2(-147, 879)
 obstacle_scene = ExtResource("5_u5opy")
 target_layer = NodePath("../..")
 delay = 3.0
 
 [node name="Lane4" parent="GameLayer/Obstacles/Road/Spawners" unique_id=1096128149 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
-position = Vector2(1120, 1000)
+position = Vector2(1063, 979)
 obstacle_scene = ExtResource("4_dakft")
 target_layer = NodePath("../..")
 delay = 2.0
@@ -230,14 +230,14 @@ direction = "left"
 
 [node name="Lane3" parent="GameLayer/Obstacles/Road/Spawners" unique_id=882697801 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
 z_index = -10
-position = Vector2(-90, 1100)
+position = Vector2(-147, 1079)
 obstacle_scene = ExtResource("5_u5opy")
 target_layer = NodePath("../..")
 delay = 3.0
 obstacle_speed = 150
 
 [node name="Lane2" parent="GameLayer/Obstacles/Road/Spawners" unique_id=1372454188 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
-position = Vector2(1120, 1212)
+position = Vector2(1063, 1191)
 obstacle_scene = ExtResource("12_b686c")
 target_layer = NodePath("../..")
 delay = 3.0
@@ -246,7 +246,7 @@ direction = "left"
 
 [node name="Lane1" parent="GameLayer/Obstacles/Road/Spawners" unique_id=1162949342 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
 z_index = -10
-position = Vector2(-90, 1300)
+position = Vector2(-147, 1279)
 obstacle_scene = ExtResource("4_dakft")
 target_layer = NodePath("../..")
 delay = 2.0

@@ -11,7 +11,7 @@ enum Sound {
 }
 
 
-@onready var sounds: Dictionary[Sound, AudioStreamPlayer2D] = {
+@onready var sounds: Dictionary[Sound, AudioStreamPlayer] = {
    Sound.Drown: $Drown,
    Sound.Hit: $Hit,
    Sound.EndZoneReached: $EndZoneReached,
@@ -33,19 +33,20 @@ func _ready() -> void:
 
 
 func _on_frog_moved() -> void:
+   print("Play move")
    _play_sound(Sound.Move)
 
 func _on_frog_drown_started(_frog:Frog) -> void:
    _play_sound(Sound.Drown)
-   
+
 func _on_frog_ran_over_started(_frog:Frog) -> void:
-   _play_sound(Sound.Hit)   
+   _play_sound(Sound.Hit)
 
 func _on_end_zone_reached(_frog:Frog) -> void:
-   _play_sound(Sound.EndZoneReached) 
-   
+   _play_sound(Sound.EndZoneReached)
+
 func _on_level_completed() -> void:
-   _play_sound(Sound.LevelCompleted)   
+   _play_sound(Sound.LevelCompleted)
 
 func _on_game_started(_lives:int) -> void:
    _play_sound(Sound.GameStart)

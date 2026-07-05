@@ -52,6 +52,7 @@ func _process(_delta: float) -> void:
             position.y -= MOVE_SPEED
             rotation = 0
             animation_player.play("walk")
+            EventBus.emit_signal("frog_moved")
 
         elif Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
             var direction = Input.get_axis("ui_left", "ui_right")
@@ -66,6 +67,7 @@ func _process(_delta: float) -> void:
     if horizontal_move:
         if is_x_on_screen(global_position.x + horizontal_move):
             position.x += horizontal_move
+            EventBus.emit_signal("frog_moved")
             animation_player.play("walk")
 
 
