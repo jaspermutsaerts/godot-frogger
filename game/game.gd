@@ -29,7 +29,7 @@ func _on_open_lilypad_reached(frog: Frog, _lilypad:Lilypad) -> void:
 
 
     await get_tree().create_timer(1).timeout
-    
+
     if end_zones == finished_frogs.size():
         EventBus.emit_signal("level_completed")
         return
