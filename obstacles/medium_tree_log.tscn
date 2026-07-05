@@ -6,6 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8dqc"]
 size = Vector2(232, 95)
 
+[sub_resource type="Curve" id="Curve_msc3q"]
+_data = [Vector2(0.010126587, 0.984771), 0.0, -0.060469847, 0, 0, Vector2(0.98227847, 0.0973376), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="MediumTreeLog" type="Area2D" unique_id=1160141086]
 collision_layer = 4
 script = ExtResource("1_msc3q")
@@ -45,5 +49,23 @@ position = Vector2(188, 0)
 texture = ExtResource("2_euqf4")
 region_enabled = true
 region_rect = Rect2(476, 16, 36, 96)
+
+[node name="WaterParticlesEmitter" type="CPUParticles2D" parent="." unique_id=1444329826]
+position = Vector2(88.00001, 31)
+scale = Vector2(2.6800032, 1)
+amount = 350
+lifetime = 0.63
+preprocess = 6.3
+speed_scale = 4.67
+explosiveness = 0.3
+emission_shape = 3
+emission_rect_extents = Vector2(45, 10)
+direction = Vector2(4.34, 0)
+spread = 52.5
+gravity = Vector2(0, 90)
+damping_max = 47.989
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_msc3q")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

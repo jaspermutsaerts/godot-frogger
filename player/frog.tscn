@@ -110,6 +110,14 @@ _data = {
 &"walk": SubResource("Animation_2f4el")
 }
 
+[sub_resource type="Curve" id="Curve_hkdbt"]
+_data = [Vector2(0.010126587, 0.984771), 0.0, -0.060469847, 0, 0, Vector2(0.98227847, 0.0973376), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_hkdbt"]
+offsets = PackedFloat32Array(0.3790761, 0.5638587, 0.95652175)
+colors = PackedColorArray(0.49999106, 0.13186237, 0.13298118, 1, 0.7597785, 0.2867878, 0.32190946, 1, 0.8509804, 0.34117648, 0.3882353, 1)
+
 [node name="Frog" type="CharacterBody2D" unique_id=2042843471]
 collision_mask = 126
 script = ExtResource("1_hkdbt")
@@ -129,5 +137,41 @@ scale = Vector2(3.6941864, 4.447623)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1383198811]
 libraries/ = SubResource("AnimationLibrary_6c6yd")
+
+[node name="BloodParticlesEmitter" type="CPUParticles2D" parent="." unique_id=1061944282]
+emitting = false
+amount = 152
+preprocess = 6.3
+speed_scale = 2.0
+explosiveness = 0.8
+emission_shape = 2
+emission_sphere_radius = 53.01
+direction = Vector2(2, 2)
+spread = 75.88
+gravity = Vector2(0, 0)
+radial_accel_min = 28.43
+radial_accel_max = 28.43
+damping_max = 47.989
+scale_amount_min = 7.0
+scale_amount_max = 7.0
+scale_amount_curve = SubResource("Curve_hkdbt")
+color_ramp = SubResource("Gradient_hkdbt")
+
+[node name="WaterParticlesEmitter" type="CPUParticles2D" parent="." unique_id=1458477253]
+emitting = false
+amount = 152
+lifetime = 0.63
+preprocess = 6.3
+speed_scale = 4.67
+explosiveness = 0.3
+emission_shape = 3
+emission_rect_extents = Vector2(45, 10)
+direction = Vector2(2, 2)
+spread = 52.5
+gravity = Vector2(0, 90)
+damping_max = 47.989
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_hkdbt")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

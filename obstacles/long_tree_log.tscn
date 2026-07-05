@@ -6,6 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8dqc"]
 size = Vector2(233.78906, 16.395844)
 
+[sub_resource type="Curve" id="Curve_0s086"]
+_data = [Vector2(0.010126587, 0.984771), 0.0, -0.060469847, 0, 0, Vector2(0.98227847, 0.0973376), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="LongTreeLog" type="Area2D" unique_id=651656908]
 collision_layer = 4
 script = ExtResource("1_0s086")
@@ -52,5 +56,23 @@ position = Vector2(276, 0)
 texture = ExtResource("2_mn5y8")
 region_enabled = true
 region_rect = Rect2(476, 16, 36, 96)
+
+[node name="WaterParticlesEmitter" type="CPUParticles2D" parent="." unique_id=1232697184]
+position = Vector2(128, 31)
+scale = Vector2(3.480002, 1)
+amount = 500
+lifetime = 0.63
+preprocess = 6.3
+speed_scale = 4.67
+explosiveness = 0.3
+emission_shape = 3
+emission_rect_extents = Vector2(45, 10)
+direction = Vector2(4.34, 0)
+spread = 52.5
+gravity = Vector2(0, 90)
+damping_max = 47.989
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_0s086")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

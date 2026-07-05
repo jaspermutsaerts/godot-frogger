@@ -22,6 +22,8 @@ var platform_offset:float = 0
 
 @onready var animation_player:AnimationPlayer = $AnimationPlayer
 @onready var collision_shape:CollisionShape2D = %CollisionShape2D
+@onready var blood_particles_emitter:CPUParticles2D = $BloodParticlesEmitter
+@onready var water_particles_emitter:CPUParticles2D = $WaterParticlesEmitter
 
 
 # Called when the node enters the scene tree for the first time.
@@ -133,12 +135,16 @@ func _disable_interaction() -> void:
     collision_shape.set_disabled.call_deferred(true)
 
 func _drown_animation_started() -> void:
+    water_particles_emitter.emitting = true
     EventBus.emit_signal("frog_drown_started", self)
 
 func _drown_animation_finished() -> void:
+    water_particles_emitter.emitting = false
     EventBus.emit_signal("frog_drown_finished", self)
 
 func _ran_over_animation_started() -> void:
+    blood_particles_emitter.emitting = true
+    blood_particles_emitter.one_shot = true
     EventBus.emit_signal("frog_ran_over_started", self)
 
 func _ran_over_animation_finished() -> void:
