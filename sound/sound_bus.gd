@@ -26,14 +26,13 @@ func _ready() -> void:
    EventBus.connect("frog_moved", _on_frog_moved)
    EventBus.connect("frog_drown_started", _on_frog_drown_started)
    EventBus.connect("frog_ran_over_started", _on_frog_ran_over_started)
-   EventBus.connect("end_zone_reached", _on_end_zone_reached)
+   EventBus.connect("open_lilypad_reached", _on_open_lilypad_reached)
    EventBus.connect("level_completed", _on_level_completed)
    EventBus.connect("game_over", _on_game_over)
    EventBus.connect("game_started", _on_game_started)
 
 
 func _on_frog_moved() -> void:
-   print("Play move")
    _play_sound(Sound.Move)
 
 func _on_frog_drown_started(_frog:Frog) -> void:
@@ -42,7 +41,7 @@ func _on_frog_drown_started(_frog:Frog) -> void:
 func _on_frog_ran_over_started(_frog:Frog) -> void:
    _play_sound(Sound.Hit)
 
-func _on_end_zone_reached(_frog:Frog) -> void:
+func _on_open_lilypad_reached(_frog:Frog, _lilypad:Lilypad) -> void:
    _play_sound(Sound.EndZoneReached)
 
 func _on_level_completed() -> void:

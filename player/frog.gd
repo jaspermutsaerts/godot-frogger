@@ -34,8 +34,9 @@ func setup(river_zone:Area2D, end_zone_layer:Node2D, death_layer:Node2D) -> void
     river_zone.connect("body_entered", _on_enter_river)
     river_zone.connect("body_exited", _on_exit_river)
 
-    for end_zone:Area2D in end_zone_layer.get_children():
-        end_zone.connect("body_entered", func(body: Node): _on_end_zone_reached(end_zone))
+    EventBus.connect("open_lilypad_reached", _on_open_lilypad_reached)
+    EventBus.connect("occupied_lilypad_reached", _on_occupied_lilypad_reached)
+
 
     _death_layer = death_layer
 
@@ -112,12 +113,18 @@ func _on_exit_river(body:Node2D) -> void:
 
     is_on_water = false
 
-func _on_end_zone_reached(end_zone: Node) -> void:
+func _on_open_lilypad_reached(frog:Frog, _lilypad: Lilypad) -> void:
+    if frog != self:
+        return
 
     _disable_interaction()
     position.x = round(position.x / 32) * 32
 
-    EventBus.emit_signal("end_zone_reached", self)
+func _on_occupied_lilypad_reached(frog:Frog, _lilypad: Lilypad) -> void:
+    if frog != self:
+        return
+
+    _die(DieMethod.Drown)
 
 
 func _die(method: DieMethod) -> void:

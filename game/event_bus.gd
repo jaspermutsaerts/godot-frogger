@@ -9,7 +9,8 @@ signal frog_ran_over_started(frog:Frog)
 signal frog_ran_over_finished(frog:Frog)
 signal frog_died(frog:Frog) # triggered when any death signal triggered
 signal life_lost(current_lives:int)
-signal end_zone_reached(frog:Frog)
+signal open_lilypad_reached(frog:Frog, lilypad:Lilypad)
+signal occupied_lilypad_reached(frog:Frog, lilypad:Lilypad)
 signal level_completed
 
 func _ready() -> void:

@@ -12,6 +12,5 @@ func spawn() -> void:
     var frog:Frog = frog_scene.instantiate()
     frog.setup(river_zone, end_zone_layer, death_layer)
     frog.global_position = global_position
-    
-    target_layer.add_child(frog)
 
+    target_layer.add_child(frog)

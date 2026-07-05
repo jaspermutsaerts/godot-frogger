@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dp44q7s8v5xfn"]
+
+[ext_resource type="Script" uid="uid://b3vijaqhub17o" path="res://game/lilypad.gd" id="1_bspci"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vsp63"]
+radius = 51.0
+
+[node name="Endzone" type="Area2D" unique_id=1503167129]
+collision_layer = 32
+script = ExtResource("1_bspci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1468489490]
+position = Vector2(128, 97)
+shape = SubResource("CircleShape2D_vsp63")
