@@ -212,43 +212,83 @@ delay = 2.75
 
 [node name="Spawners" type="Node2D" parent="GameLayer/Obstacles/Road" unique_id=553590107]
 
-[node name="Lane5" parent="GameLayer/Obstacles/Road/Spawners" unique_id=2073737599 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
-z_index = -10
-position = Vector2(-147, 879)
-obstacle_scene = ExtResource("5_u5opy")
-target_layer = NodePath("../..")
-delay = 3.0
+[node name="Lane1Bone2D" type="Bone2D" parent="GameLayer/Obstacles/Road/Spawners" unique_id=243978166]
+position = Vector2(-147, 1279)
 
-[node name="Lane4" parent="GameLayer/Obstacles/Road/Spawners" unique_id=1096128149 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
-position = Vector2(1063, 979)
+[node name="Lane1" parent="GameLayer/Obstacles/Road/Spawners/Lane1Bone2D" unique_id=1162949342 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
+z_index = -10
 obstacle_scene = ExtResource("4_dakft")
-target_layer = NodePath("../..")
+target_layer = NodePath("../../..")
 delay = 2.0
+obstacle_speed = 250
+
+[node name="Marker" type="ColorRect" parent="GameLayer/Obstacles/Road/Spawners/Lane1Bone2D/Lane1" unique_id=1826546191]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 1, 1)
+
+[node name="Lane2Bone2D" type="Bone2D" parent="GameLayer/Obstacles/Road/Spawners" unique_id=928985087]
+position = Vector2(1063, 1191)
+
+[node name="Lane2" parent="GameLayer/Obstacles/Road/Spawners/Lane2Bone2D" unique_id=1372454188 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
+obstacle_scene = ExtResource("12_b686c")
+target_layer = NodePath("../../..")
+delay = 3.0
+obstacle_speed = 250
 direction = "left"
 
-[node name="Lane3" parent="GameLayer/Obstacles/Road/Spawners" unique_id=882697801 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
-z_index = -10
+[node name="Marker" type="ColorRect" parent="GameLayer/Obstacles/Road/Spawners/Lane2Bone2D/Lane2" unique_id=110508767]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 1, 1)
+
+[node name="Lane3Bone2D" type="Bone2D" parent="GameLayer/Obstacles/Road/Spawners" unique_id=1385865682]
 position = Vector2(-147, 1079)
+
+[node name="Lane3" parent="GameLayer/Obstacles/Road/Spawners/Lane3Bone2D" unique_id=882697801 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
+z_index = -10
 obstacle_scene = ExtResource("5_u5opy")
-target_layer = NodePath("../..")
+target_layer = NodePath("../../..")
 delay = 3.0
 obstacle_speed = 150
 
-[node name="Lane2" parent="GameLayer/Obstacles/Road/Spawners" unique_id=1372454188 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
-position = Vector2(1063, 1191)
-obstacle_scene = ExtResource("12_b686c")
-target_layer = NodePath("../..")
-delay = 3.0
-obstacle_speed = 250
+[node name="Marker" type="ColorRect" parent="GameLayer/Obstacles/Road/Spawners/Lane3Bone2D/Lane3" unique_id=567124035]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 1, 1)
+
+[node name="Lane4Bone2D" type="Bone2D" parent="GameLayer/Obstacles/Road/Spawners" unique_id=1220474043]
+position = Vector2(1063, 979)
+
+[node name="Lane4" parent="GameLayer/Obstacles/Road/Spawners/Lane4Bone2D" unique_id=1096128149 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
+obstacle_scene = ExtResource("4_dakft")
+target_layer = NodePath("../../..")
+delay = 2.0
 direction = "left"
 
-[node name="Lane1" parent="GameLayer/Obstacles/Road/Spawners" unique_id=1162949342 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
+[node name="Marker" type="ColorRect" parent="GameLayer/Obstacles/Road/Spawners/Lane4Bone2D/Lane4" unique_id=1164507513]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 1, 1)
+
+[node name="Lane5Bone2D" type="Bone2D" parent="GameLayer/Obstacles/Road/Spawners" unique_id=31800288]
+position = Vector2(-147, 879)
+
+[node name="Lane5" parent="GameLayer/Obstacles/Road/Spawners/Lane5Bone2D" unique_id=2073737599 node_paths=PackedStringArray("target_layer") instance=ExtResource("3_h7iqs")]
 z_index = -10
-position = Vector2(-147, 1279)
-obstacle_scene = ExtResource("4_dakft")
-target_layer = NodePath("../..")
-delay = 2.0
-obstacle_speed = 250
+obstacle_scene = ExtResource("5_u5opy")
+target_layer = NodePath("../../..")
+delay = 3.0
+
+[node name="Marker" type="ColorRect" parent="GameLayer/Obstacles/Road/Spawners/Lane5Bone2D/Lane5" unique_id=19075969]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 1, 1)
 
 [node name="Player" type="Node2D" parent="GameLayer" unique_id=1671098382]
 
@@ -291,3 +331,6 @@ offset_top = 1754.0
 offset_right = 164.0
 offset_bottom = 1854.0
 grow_vertical = 0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=349475628]
+position = Vector2(539, 907)
