@@ -90,6 +90,24 @@ size = Vector2(1092.5, 480)
 [node name="Game" type="Node2D" unique_id=2053881977]
 script = ExtResource("1_l1rk1")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1039853637]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=727136435]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LifeContainer" parent="CanvasLayer/Control" unique_id=650281970 instance=ExtResource("12_qf6n1")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+offset_left = 104.0
+offset_top = 1754.0
+offset_right = 164.0
+offset_bottom = 1854.0
+grow_vertical = 0
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1879684930]
 position = Vector2(0, 21)
 scale = Vector2(2, 2)
@@ -315,22 +333,6 @@ position = Vector2(576, 1)
 
 [node name="Lilypad5" parent="GameLayer/EndZoneLayer" unique_id=1604008194 instance=ExtResource("14_hb504")]
 position = Vector2(768, 1)
-
-[node name="Control" type="Control" parent="." unique_id=727136435]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="LifeContainer" parent="Control" unique_id=650281970 instance=ExtResource("12_qf6n1")]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-offset_left = 104.0
-offset_top = 1754.0
-offset_right = 164.0
-offset_bottom = 1854.0
-grow_vertical = 0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=349475628]
 position = Vector2(539, 907)
