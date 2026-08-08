@@ -49,16 +49,17 @@ func _process(_delta: float) -> void:
 
     var horizontal_move:float = 0
     if is_alive:
-        if Input.is_action_just_pressed("ui_up"):
+       
+
+        if Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
+            var direction = Input.get_axis("ui_left", "ui_right")
+            horizontal_move = MOVE_SPEED * direction
+            rotation = PI * .5 * direction
+        elif Input.is_action_just_pressed("ui_up"):
             position.y -= MOVE_SPEED
             rotation = 0
             animation_player.play("walk")
             EventBus.emit_signal("frog_moved")
-
-        elif Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
-            var direction = Input.get_axis("ui_left", "ui_right")
-            horizontal_move = MOVE_SPEED * direction
-            rotation = PI * .5 * direction
 
     if is_on_platform():
         var platform:MovingObstacle = on_platforms[-1]

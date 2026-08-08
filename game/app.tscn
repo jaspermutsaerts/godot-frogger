@@ -3,18 +3,29 @@
 [ext_resource type="Script" uid="uid://dihomylim14w3" path="res://game/app.gd" id="1_2ag8j"]
 [ext_resource type="Theme" uid="uid://bbns4p62it28" path="res://gui/ui_theme.tres" id="2_3hv5s"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hv5s"]
+bg_color = Color(0.29411766, 0.4117647, 0.18431373, 1)
+
 [node name="App" type="Control" unique_id=961803289]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_2ag8j")
 
 [node name="MainMenu" type="VBoxContainer" parent="." unique_id=941689985]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(1024, 100)
 layout_mode = 1
-offset_right = 1080.0
-offset_bottom = 263.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_3hv5s")
+theme_override_constants/separation = 50
 alignment = 1
 
 [node name="GameOverLabel" type="RichTextLabel" parent="MainMenu" unique_id=683182755]
@@ -35,8 +46,10 @@ horizontal_alignment = 1
 
 [node name="NewGameButton" type="Button" parent="MainMenu" unique_id=704420897]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_3hv5s")
 text = "New Game
 "
