@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://rwp4757086s0" path="res://game/game.gd" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://buihb2y6eqcis" path="res://obstacles/spawners/river_spawner.tscn" id="2_h7iqs"]
+[ext_resource type="PackedScene" uid="uid://bolodsplnqnqu" path="res://addons/virtual_joystick_cf/virtual_joystick_cf.tscn" id="3_ee6o4"]
 [ext_resource type="PackedScene" uid="uid://bqlk0tyb056qh" path="res://obstacles/spawners/road_spawner.tscn" id="3_h7iqs"]
 [ext_resource type="PackedScene" uid="uid://my8hakbj8ovb" path="res://obstacles/medium_tree_log.tscn" id="3_l8g03"]
 [ext_resource type="PackedScene" uid="uid://uf257tmnt4nn" path="res://obstacles/medium_turtle_group.tscn" id="4_3vho3"]
@@ -107,6 +108,16 @@ offset_top = 1754.0
 offset_right = 164.0
 offset_bottom = 1854.0
 grow_vertical = 0
+
+[node name="VirtualJoystickCF" parent="CanvasLayer" unique_id=912784726 instance=ExtResource("3_ee6o4")]
+offset_left = 801.0
+offset_top = 1599.0
+offset_right = 801.0
+offset_bottom = 1599.0
+direction_mode = 2
+deadzone = 0.32
+joystick_scale = 1.25
+vibration_enabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1879684930]
 position = Vector2(0, 21)
@@ -240,7 +251,7 @@ target_layer = NodePath("../../..")
 delay = 2.0
 obstacle_speed = 250
 
-[node name="Marker" type="ColorRect" parent="GameLayer/Obstacles/Road/Spawners/Lane1Bone2D/Lane1" unique_id=1826546191]
+[node name="Marker2" type="ColorRect" parent="GameLayer/Obstacles/Road/Spawners/Lane1Bone2D/Lane1" unique_id=1826546191]
 custom_minimum_size = Vector2(50, 50)
 offset_right = 40.0
 offset_bottom = 40.0
@@ -256,7 +267,7 @@ delay = 3.0
 obstacle_speed = 250
 direction = "left"
 
-[node name="Marker" type="ColorRect" parent="GameLayer/Obstacles/Road/Spawners/Lane2Bone2D/Lane2" unique_id=110508767]
+[node name="Marker2" type="ColorRect" parent="GameLayer/Obstacles/Road/Spawners/Lane2Bone2D/Lane2" unique_id=110508767]
 custom_minimum_size = Vector2(50, 50)
 offset_right = 40.0
 offset_bottom = 40.0
@@ -272,7 +283,7 @@ target_layer = NodePath("../../..")
 delay = 3.0
 obstacle_speed = 150
 
-[node name="Marker" type="ColorRect" parent="GameLayer/Obstacles/Road/Spawners/Lane3Bone2D/Lane3" unique_id=567124035]
+[node name="Marker2" type="ColorRect" parent="GameLayer/Obstacles/Road/Spawners/Lane3Bone2D/Lane3" unique_id=567124035]
 custom_minimum_size = Vector2(50, 50)
 offset_right = 40.0
 offset_bottom = 40.0
@@ -287,7 +298,7 @@ target_layer = NodePath("../../..")
 delay = 2.0
 direction = "left"
 
-[node name="Marker" type="ColorRect" parent="GameLayer/Obstacles/Road/Spawners/Lane4Bone2D/Lane4" unique_id=1164507513]
+[node name="Marker2" type="ColorRect" parent="GameLayer/Obstacles/Road/Spawners/Lane4Bone2D/Lane4" unique_id=1164507513]
 custom_minimum_size = Vector2(50, 50)
 offset_right = 40.0
 offset_bottom = 40.0
@@ -302,7 +313,7 @@ obstacle_scene = ExtResource("5_u5opy")
 target_layer = NodePath("../../..")
 delay = 3.0
 
-[node name="Marker" type="ColorRect" parent="GameLayer/Obstacles/Road/Spawners/Lane5Bone2D/Lane5" unique_id=19075969]
+[node name="Marker2" type="ColorRect" parent="GameLayer/Obstacles/Road/Spawners/Lane5Bone2D/Lane5" unique_id=19075969]
 custom_minimum_size = Vector2(50, 50)
 offset_right = 40.0
 offset_bottom = 40.0
@@ -335,4 +346,4 @@ position = Vector2(576, 1)
 position = Vector2(768, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=349475628]
-position = Vector2(539, 907)
+position = Vector2(519, 907)
