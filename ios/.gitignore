@@ -1,0 +1,30 @@
+# Xcode user-specific data
+xcuserdata/
+*.xcuserstate
+
+# Xcode build output
+DerivedData/
+build/
+*.xcarchive
+
+# Build products
+*.ipa
+*.pck
+*.dSYM
+*.dSYM.zip
+*.xcframework
+
+# Xcode generated files
+*.hmap
+
+# Swift Package Manager
+.build/
+
+# CocoaPods
+Pods/
+
+# Temporary files
+.DS_Store
+*.tmp
+*.log
+
